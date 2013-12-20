@@ -1,0 +1,2 @@
+F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_FightContent\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_FightContent\obj\x86\Debug\Medeval_FightContent.contentprojResolveAssemblyReference.cache
