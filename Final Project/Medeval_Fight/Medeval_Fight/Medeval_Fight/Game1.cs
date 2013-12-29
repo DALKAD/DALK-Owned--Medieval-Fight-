@@ -25,7 +25,7 @@ namespace Medeval_Fight
         Rectangle Splash_Screen_Rec, Menu_Screen_Rec,Exit_Button_Rec, Start_Button_Rec, Info_Button_Rec, Grass_Tile_Rec, House_Tile_Rec, Road_Tile_Rec , Player_Character_Rec, Enemy_Current_Rec, Player_Pick_Rec;
         //Textures
         Texture2D Splash_Screen_Tex,Menu_Screen_Tex,Exit_Button_Tex,Start_Button_Tex, Info_Button_Tex, Grass_Tile_Tex, House_Tile_Tex, Road_Tile_Tex, Enemy_Tex, Player_Character_Current_Tex,
-            Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex;
+            Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex, Player_Character_Sage_Right_Tex, Player_Character_Sage_Left_Tex;
         //Integers cuhhhh
         int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row, X_Value_Enemy, Y_Value_Enemy, Total_Timer, Tick_Counter, Enemy_X_Compare_Cord, Enemy_Y_Compare_Cord, Player_X_Compare_Cord, Player_Y_Compare_Cord
             , Total_X_Cord, Total_Y_Cord, Total_Cord, Enemy_Number_Rate;
@@ -87,6 +87,8 @@ namespace Medeval_Fight
             Player_Character_Current_Tex = Content.Load<Texture2D>("Player_Sage_Front");
             Player_Character_Sage_Back_Tex = Content.Load<Texture2D>("Player_Sage_Back");
             Player_Character_Sage_Front_Tex = Content.Load<Texture2D>("Player_Sage_Front");
+            Player_Character_Sage_Left_Tex = Content.Load<Texture2D>("Player_Sage_Left");
+            Player_Character_Sage_Right_Tex = Content.Load<Texture2D>("Player_Sage_Right"); 
             Enemy_List = new List<Texture2D>();
             Enemy_X_List = new List<int>();
             Enemy_Y_List = new List<int>();
@@ -208,10 +210,12 @@ namespace Medeval_Fight
             }
             if (Push_Keyboard_State.IsKeyUp(Keys.A) && Keyboard_State.IsKeyDown(Keys.A))
             {
+                Player_Character_Current_Tex = Player_Character_Sage_Left_Tex;
                 Player_Character_Rec.X -= 20;
             }
             if (Push_Keyboard_State.IsKeyUp(Keys.D) && Keyboard_State.IsKeyDown(Keys.D))
             {
+                Player_Character_Current_Tex = Player_Character_Sage_Right_Tex;
                 Player_Character_Rec.X += 20;
             }
             Push_Keyboard_State = Keyboard_State;
@@ -293,7 +297,7 @@ namespace Medeval_Fight
                 Total_Timer++;
                 Tick_Counter = 0;
             }
-            //  generates the enemies rate
+            //  generates the enemies rate and enemy generation
             Enemy_Number_Rate = Enemy_Number.Next(-1000, 1000);
             if (Enemy_Number_Rate < -500)
             {
