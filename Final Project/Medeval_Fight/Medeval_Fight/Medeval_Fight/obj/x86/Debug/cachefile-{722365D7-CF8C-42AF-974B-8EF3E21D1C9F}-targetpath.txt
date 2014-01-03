@@ -1,5 +1,4 @@
 Content\SpriteFont1.xnb
-Content\Splash.xnb
 Content\Menu.xnb
 Content\exit.xnb
 Content\info.xnb

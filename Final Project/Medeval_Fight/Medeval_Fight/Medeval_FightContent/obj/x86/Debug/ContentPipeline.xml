@@ -11,15 +11,6 @@
       <Time>2013-12-17T11:59:47.2078011-05:00</Time>
     </Item>
     <Item>
-      <Source>Splash.jpg</Source>
-      <Name>Splash</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Splash.xnb</Output>
-      <Time>2013-12-17T12:51:10.2391539-05:00</Time>
-    </Item>
-    <Item>
       <Source>Menu.jpg</Source>
       <Name>Menu</Name>
       <Importer>TextureImporter</Importer>

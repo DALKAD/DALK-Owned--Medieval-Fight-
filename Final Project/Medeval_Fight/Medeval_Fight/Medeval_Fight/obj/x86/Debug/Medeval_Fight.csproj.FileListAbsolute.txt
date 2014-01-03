@@ -4,7 +4,6 @@ F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\ob
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medeval_Fight.exe
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medeval_Fight.pdb
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\SpriteFont1.xnb
-F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Splash.xnb
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Menu.xnb
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\exit.xnb
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\info.xnb
