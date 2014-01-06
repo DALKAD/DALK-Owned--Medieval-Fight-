@@ -22,15 +22,16 @@ namespace Medeval_Fight
         KeyboardState Push_Keyboard_State;
         SpriteFont Main_Font;
         //Rectangles 
-        Rectangle Menu_Screen_Rec,Exit_Button_Rec, Start_Button_Rec, Info_Button_Rec, Grass_Tile_Rec, House_Tile_Rec, Road_Tile_Rec , Player_Character_Rec, Enemy_Current_Rec, Player_Pick_Rec;
+        Rectangle Menu_Screen_Rec,Exit_Button_Rec, Start_Button_Rec, Info_Button_Rec, Grass_Tile_Rec, House_Tile_Rec, Road_Tile_Rec , Player_Character_Rec, Player_Pick_Rec
+            ,Enemy_Rec;
         //Textures
         Texture2D Menu_Screen_Tex,Exit_Button_Tex,Start_Button_Tex, Info_Button_Tex, Grass_Tile_Tex, House_Tile_Tex, Road_Tile_Tex, Enemy_Tex, Player_Character_Current_Tex,
             Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex, Player_Character_Sage_Right_Tex, Player_Character_Sage_Left_Tex;
         //Integers cuhhhh
         int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer, Tick_Counter, Enemy_X_Compare_Cord, Enemy_Y_Compare_Cord, Player_X_Compare_Cord, Player_Y_Compare_Cord
-            , Total_X_Cord, Total_Y_Cord;
+            , Total_X_Cord, Total_Y_Cord, Enemy_Count_One, Enemy_Count_Two, Enemy_Count_Three;
         //booleans
-        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Controls_Menu, Enemy_Dead, Character_Pick, Sage_Settings;
+        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Controls_Menu, Character_Pick, Enemy_One, Enemy_Two, Enemy_Three;
         //Grids
         Rectangle[,] BG_Grid = new Rectangle[9, 9];
         //Dem random number generators
@@ -66,7 +67,8 @@ namespace Medeval_Fight
             House_Tile_Rec = new Rectangle(0, 0, 60, 60);
             Road_Tile_Rec = new Rectangle(0, 0, 60, 60);
             Player_Character_Rec = new Rectangle(0, 0, 40, 40);
-            Player_Pick_Rec = new Rectangle(50,300, 60,60);
+            Player_Pick_Rec = new Rectangle(50, 300, 60,60);
+            Enemy_Rec = new Rectangle(400, 400, 60, 60);
             base.Initialize();
         }
         protected override void LoadContent()
@@ -85,8 +87,11 @@ namespace Medeval_Fight
             Player_Character_Sage_Back_Tex = Content.Load<Texture2D>("Player_Sage_Back");
             Player_Character_Sage_Front_Tex = Content.Load<Texture2D>("Player_Sage_Front");
             Player_Character_Sage_Left_Tex = Content.Load<Texture2D>("Player_Sage_Left");
-            Player_Character_Sage_Right_Tex = Content.Load<Texture2D>("Player_Sage_Right"); 
+            Player_Character_Sage_Right_Tex = Content.Load<Texture2D>("Player_Sage_Right");
             Enemy_List = new List<Rectangle>();
+            
+                Enemy_List.Add(Enemy_Rec);
+            
             Enemy_X_List = new List<int>();
             Enemy_Y_List = new List<int>();
             Enemy_Health = new List<int>();
@@ -106,7 +111,6 @@ namespace Medeval_Fight
         }
         protected override void Update(GameTime gameTime)
         {
-            Mouse_State = Mouse.GetState();
             switch (Game_State)
             {
                 case GameState.Splash_Screen:
@@ -122,7 +126,6 @@ namespace Medeval_Fight
                     Exit_Screen_Update_State();
                     break;
             }
-            Last_Click_Mouse = Mouse_State;
             base.Update(gameTime);
         }
         public void Splash_Screen_Update_State()
@@ -159,8 +162,8 @@ namespace Medeval_Fight
         }
         public void Menu_Screen_Update_State()
         {
+            Mouse_State = Mouse.GetState();
             //change font, add title, and hoverovers
-            //Mouse_State = Mouse.GetState();
             if (Exit_Button_Rec.Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed)
             {
                 Exit();
@@ -173,9 +176,13 @@ namespace Medeval_Fight
             {
                 Controls_Menu = true;
             }
+            Last_Click_Mouse = Mouse_State;
         }
         public void Game_Play_Update_State()
         {
+            
+            Mouse_State = Mouse.GetState();
+            KeyboardState Keyboard_State = Keyboard.GetState();
             //Character choose code yuh boi
             if (Character_Pick == false)
             {
@@ -184,7 +191,6 @@ namespace Medeval_Fight
                     Character_Pick = true;
                 }
             }
-            KeyboardState Keyboard_State = Keyboard.GetState();
             //player movement
             if (Push_Keyboard_State.IsKeyUp(Keys.W) && Keyboard_State.IsKeyDown(Keys.W))
             {
@@ -206,26 +212,13 @@ namespace Medeval_Fight
                 Player_Character_Current_Tex = Player_Character_Sage_Right_Tex;
                 Player_Character_Rec.X += 20;
             }
-            Push_Keyboard_State = Keyboard_State;
             //attack code sage (ranged attack but weaker)
-            if (Enemy_Current_Rec.Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed)
+            if (Enemy_List[0].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
             {
-                if (Sage_Settings == false)
+                Enemy_Count_Three++;
+                if (Enemy_Count_Three >= 4)
                 {
-                    Player_X_Compare_Cord = Player_Character_Rec.X;
-                    Player_Y_Compare_Cord = Player_Character_Rec.Y;
-                    Enemy_X_Compare_Cord = Enemy_Current_Rec.X;
-                    Enemy_Y_Compare_Cord = Enemy_Current_Rec.Y;
-                    Total_X_Cord = Enemy_X_Compare_Cord - Player_X_Compare_Cord;
-                    Total_Y_Cord = Enemy_Y_Compare_Cord - Player_Y_Compare_Cord;
-                    if (Total_X_Cord < 0 || Total_X_Cord > 1 && Total_Y_Cord < -1 || Total_Y_Cord > 1)
-                    {
-                        Enemy_Dead = true;
-                    }
-                    if (Total_X_Cord < -30 || Total_X_Cord > 30 && Total_Y_Cord < -100 || Total_Y_Cord > 100)
-                    {
-                        Enemy_Dead = true;
-                    }
+                    Enemy_List.RemoveAt(0);
                 }
             }
             //timer
@@ -235,6 +228,8 @@ namespace Medeval_Fight
                 Total_Timer++;
                 Tick_Counter = 0;
             }
+            Last_Click_Mouse = Mouse_State;
+            Push_Keyboard_State = Keyboard_State;
         }
         public void Exit_Screen_Update_State()
         {
@@ -330,7 +325,16 @@ namespace Medeval_Fight
                     spriteBatch.Draw(Road_Tile_Tex, BG_Grid[i, 4], Color.White);
                 }
                 spriteBatch.Draw(Player_Character_Current_Tex, Player_Character_Rec, Color.White);
-                spriteBatch.DrawString(Main_Font, Total_Timer.ToString(), new Vector2 (0,0), Color.Brown);
+                spriteBatch.DrawString(Main_Font, Total_Timer.ToString(), new Vector2(0, 0), Color.Brown);
+                spriteBatch.DrawString(Main_Font, Enemy_List.Count.ToString(), new Vector2(0, 60), Color.Brown);
+                if (Enemy_List.Count == 0)
+                {
+                    Game_State = GameState.Exit_Screen;
+                }
+                if (Enemy_List.Count >= 1)
+                {
+                    spriteBatch.Draw(Enemy_Tex, Enemy_List[0], Color.White);
+                }
             }
         }
         public void Exit_Screen_Draw_State()
