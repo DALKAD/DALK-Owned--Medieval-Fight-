@@ -22,27 +22,26 @@ namespace Medeval_Fight
         KeyboardState Push_Keyboard_State;
         SpriteFont Main_Font;
         //Rectangles 
-        Rectangle Menu_Screen_Rec,Exit_Button_Rec, Start_Button_Rec, Info_Button_Rec, Grass_Tile_Rec, House_Tile_Rec, Road_Tile_Rec , Player_Character_Rec, Player_Pick_Rec
-            ,Enemy_Rec;
+        Rectangle Menu_Screen_Rec,Exit_Button_Rec, Start_Button_Rec, Info_Button_Rec, House_2_Rec, Grass_Tile_Rec, House_Tile_Rec, Road_Tile_Rec , Player_Current_Character_Rec, Player_Sage_Pick_Rec, Player_Lance_Pick_Rec
+            , Enemy_Rec_1, Enemy_Rec_2, Enemy_Rec_3, Enemy_Rec_4, Enemy_Rec_5, Enemy_Rec_6, Enemy_Rec_7, Enemy_Rec_8, Enemy_Rec_9, Enemy_Rec_10, Enemy_Rec_11, Enemy_Rec_12, Enemy_Rec_13, Enemy_Rec_14, Enemy_Rec_15;
         //Textures
-        Texture2D Menu_Screen_Tex,Exit_Button_Tex,Start_Button_Tex, Info_Button_Tex, Grass_Tile_Tex, House_Tile_Tex, Road_Tile_Tex, Enemy_Tex, Player_Character_Current_Tex,
-            Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex, Player_Character_Sage_Right_Tex, Player_Character_Sage_Left_Tex;
+        Texture2D Menu_Screen_Tex, Exit_Button_Tex, Start_Button_Tex, Info_Button_Tex, House_2_Tex, Grass_Tile_Tex, House_Tile_Tex, Road_Tile_Tex, Enemy_Tex, Player_Character_Current_Tex,
+            Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex, Player_Character_Sage_Right_Tex, Player_Character_Sage_Left_Tex, Player_Character_Lance_Front_Tex;
         //Integers cuhhhh
-        int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer, Tick_Counter, Enemy_X_Compare_Cord, Enemy_Y_Compare_Cord, Player_X_Compare_Cord, Player_Y_Compare_Cord
-            , Total_X_Cord, Total_Y_Cord, Enemy_Count_One, Enemy_Count_Two, Enemy_Count_Three;
+        int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer, Tick_Counter, Enemy_Count, Enemy_Kill_Total, Enemy_List_Number;
         //booleans
-        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Controls_Menu, Character_Pick, Enemy_One, Enemy_Two, Enemy_Three;
-        //Grids
+        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Lance_Settings, Remove_From_List_One, Remove_From_List_Two, Remove_From_List_Three;
+        //Grids  zVX
         Rectangle[,] BG_Grid = new Rectangle[9, 9];
         //Dem random number generators
         Random Random_Number = new Random();
         Random Enemy_Number = new Random();
         //lists
         List<Rectangle> Enemy_List;
-        List<int> Enemy_Y_List;
-        List<int> Enemy_X_List;
-        List<int> Enemy_Health;
+        List<Rectangle> Enemy_List_2;
+        List<Rectangle> Enemy_List_3;
         //arrays
+        string[] Levels = new string[5] { "Level 1", "Level 2", "Level 3", "Level 4" , "Level 5"};
         string[] Loading = new string[5] {"Loading." , "Loading.." , "Loading..." , "Loading...." , "Loading....."};
         //Gamestates
         enum GameState
@@ -65,10 +64,26 @@ namespace Medeval_Fight
             Info_Button_Rec = new Rectangle(400, 430, 150, 50);
             Grass_Tile_Rec = new Rectangle(0, 0, 60, 60);
             House_Tile_Rec = new Rectangle(0, 0, 60, 60);
+            House_2_Rec = new Rectangle(0, 0, 60, 60);
             Road_Tile_Rec = new Rectangle(0, 0, 60, 60);
-            Player_Character_Rec = new Rectangle(0, 0, 40, 40);
-            Player_Pick_Rec = new Rectangle(50, 300, 60,60);
-            Enemy_Rec = new Rectangle(400, 400, 60, 60);
+            Player_Current_Character_Rec = new Rectangle(60, 60, 40, 40);
+            Player_Sage_Pick_Rec = new Rectangle(50, 300, 60, 60);
+            Player_Lance_Pick_Rec = new Rectangle(225, 300, 60, 60);
+            Enemy_Rec_1 = new Rectangle(400, 400, 60, 60);
+            Enemy_Rec_2 = new Rectangle(400, 400, 60, 60);
+            Enemy_Rec_3 = new Rectangle(400, 400, 60, 60);
+            Enemy_Rec_4 = new Rectangle(400, 400, 60, 60);
+            Enemy_Rec_5 = new Rectangle(400, 400, 60, 60);
+            Enemy_Rec_6 = new Rectangle(100, 400, 60, 60);
+            Enemy_Rec_7 = new Rectangle(100, 400, 60, 60);
+            Enemy_Rec_8 = new Rectangle(100, 400, 60, 60);
+            Enemy_Rec_9 = new Rectangle(100, 400, 60, 60);
+            Enemy_Rec_10 = new Rectangle(100, 400, 60, 60);
+            Enemy_Rec_11 = new Rectangle(200, 400, 60, 60);
+            Enemy_Rec_12 = new Rectangle(200, 400, 60, 60);
+            Enemy_Rec_13 = new Rectangle(200, 400, 60, 60);
+            Enemy_Rec_14 = new Rectangle(200, 400, 60, 60);
+            Enemy_Rec_15 = new Rectangle(200, 400, 60, 60);
             base.Initialize();
         }
         protected override void LoadContent()
@@ -81,6 +96,7 @@ namespace Medeval_Fight
             Info_Button_Tex = Content.Load<Texture2D>("info");
             Grass_Tile_Tex = Content.Load<Texture2D>("grass");
             House_Tile_Tex = Content.Load<Texture2D>("house");
+            House_2_Tex = Content.Load<Texture2D>("house2");
             Road_Tile_Tex = Content.Load<Texture2D>("road");
             Enemy_Tex = Content.Load<Texture2D>("Enemy");
             Player_Character_Current_Tex = Content.Load<Texture2D>("Player_Sage_Front");
@@ -88,13 +104,25 @@ namespace Medeval_Fight
             Player_Character_Sage_Front_Tex = Content.Load<Texture2D>("Player_Sage_Front");
             Player_Character_Sage_Left_Tex = Content.Load<Texture2D>("Player_Sage_Left");
             Player_Character_Sage_Right_Tex = Content.Load<Texture2D>("Player_Sage_Right");
+            Player_Character_Lance_Front_Tex = Content.Load<Texture2D>("Layer_Lance_Front"); 
             Enemy_List = new List<Rectangle>();
-            
-                Enemy_List.Add(Enemy_Rec);
-            
-            Enemy_X_List = new List<int>();
-            Enemy_Y_List = new List<int>();
-            Enemy_Health = new List<int>();
+            Enemy_List_2 = new List<Rectangle>();
+            Enemy_List_3 = new List<Rectangle>();
+            Enemy_List.Add(Enemy_Rec_1);
+            //Enemy_List.Add(Enemy_Rec_2);
+            //Enemy_List.Add(Enemy_Rec_3);
+            //Enemy_List.Add(Enemy_Rec_4);
+            //Enemy_List.Add(Enemy_Rec_5);
+            Enemy_List_2.Add(Enemy_Rec_6);
+            //Enemy_List_2.Add(Enemy_Rec_7);
+            //Enemy_List_2.Add(Enemy_Rec_8);
+            //Enemy_List_2.Add(Enemy_Rec_9);
+            //Enemy_List_2.Add(Enemy_Rec_10);
+            Enemy_List_3.Add(Enemy_Rec_11);
+            //Enemy_List_3.Add(Enemy_Rec_12);
+            //Enemy_List_3.Add(Enemy_Rec_13);
+            //Enemy_List_3.Add(Enemy_Rec_14);
+            //Enemy_List_3.Add(Enemy_Rec_15);
             for (int i = 0; i < BG_Grid.GetLength(0); i++)
             {
                 for (int j = 0; j < BG_Grid.GetLength(1); j++)
@@ -180,45 +208,120 @@ namespace Medeval_Fight
         }
         public void Game_Play_Update_State()
         {
-            
             Mouse_State = Mouse.GetState();
             KeyboardState Keyboard_State = Keyboard.GetState();
             //Character choose code yuh boi
             if (Character_Pick == false)
             {
-                if (Player_Pick_Rec.Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed)
+                if (Player_Sage_Pick_Rec.Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed)
                 {
+                    Player_Character_Current_Tex = Player_Character_Sage_Front_Tex;
                     Character_Pick = true;
+                    Sage_Settings = true;
+                }
+                if (Player_Lance_Pick_Rec.Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed)
+                {
+                    Player_Character_Current_Tex = Player_Character_Lance_Front_Tex;
+                    Character_Pick = true;
+                    Lance_Settings = true;
                 }
             }
             //player movement
             if (Push_Keyboard_State.IsKeyUp(Keys.W) && Keyboard_State.IsKeyDown(Keys.W))
             {
-                Player_Character_Current_Tex = Player_Character_Sage_Back_Tex;
-                Player_Character_Rec.Y -= 20;
+                if (Sage_Settings == true)
+                {
+                    Player_Character_Current_Tex = Player_Character_Sage_Back_Tex;
+                }
+                if (Lance_Settings == true)
+                {
+                    Player_Character_Current_Tex = Player_Character_Lance_Front_Tex;
+                }
+                Player_Current_Character_Rec.Y -= 20;
             }
             if (Push_Keyboard_State.IsKeyUp(Keys.S) && Keyboard_State.IsKeyDown(Keys.S))
             {
-                Player_Character_Current_Tex = Player_Character_Sage_Front_Tex;
-                Player_Character_Rec.Y += 20;
+                if (Sage_Settings == true)
+                {
+                    Player_Character_Current_Tex = Player_Character_Sage_Front_Tex;
+                }
+                if (Lance_Settings == true)
+                {
+                    Player_Character_Current_Tex = Player_Character_Lance_Front_Tex;
+                }
+                Player_Current_Character_Rec.Y += 20;
             }
             if (Push_Keyboard_State.IsKeyUp(Keys.A) && Keyboard_State.IsKeyDown(Keys.A))
             {
-                Player_Character_Current_Tex = Player_Character_Sage_Left_Tex;
-                Player_Character_Rec.X -= 20;
+                if (Sage_Settings == true)
+                {
+                    Player_Character_Current_Tex = Player_Character_Sage_Left_Tex;
+                }
+                if (Lance_Settings == true)
+                {
+                    Player_Character_Current_Tex = Player_Character_Lance_Front_Tex;
+                }
+                Player_Current_Character_Rec.X -= 20;
             }
             if (Push_Keyboard_State.IsKeyUp(Keys.D) && Keyboard_State.IsKeyDown(Keys.D))
             {
-                Player_Character_Current_Tex = Player_Character_Sage_Right_Tex;
-                Player_Character_Rec.X += 20;
+                if (Sage_Settings == true)
+                {
+                    Player_Character_Current_Tex = Player_Character_Sage_Right_Tex;
+                }
+                if (Lance_Settings == true)
+                {
+                    Player_Character_Current_Tex = Player_Character_Lance_Front_Tex;
+                }
+                Player_Current_Character_Rec.X += 20;
             }
             //attack code sage (ranged attack but weaker)
-            if (Enemy_List[0].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+            for (int i = 0; i < Enemy_List.Count; i++)
             {
-                Enemy_Count_Three++;
-                if (Enemy_Count_Three >= 4)
+                if (Sage_Settings == true)
                 {
-                    Enemy_List.RemoveAt(0);
+                    if (Enemy_List[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released || Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+                    {
+                        Enemy_Count++;
+                        if (Enemy_List[i].X - Player_Current_Character_Rec.X < 200 && Enemy_List[i].Y - Player_Current_Character_Rec.Y < 200)
+                        {
+                            if (Enemy_Count >= 3)
+                            {
+                                Enemy_List_Number = i;
+                                Enemy_Kill_Total++;
+                                Enemy_Count = 0;
+                                Enemy_List.RemoveAt(Enemy_List_Number);
+                            }
+                        }
+                    }
+                    if (Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released || Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+                    {
+                        Enemy_Count++;
+                        if (Enemy_List_2[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 200)
+                        {
+                            if (Enemy_Count >= 3)
+                            {
+                                Enemy_List_Number = i;
+                                Enemy_Kill_Total++;
+                                Enemy_Count = 0;
+                                Enemy_List_2.RemoveAt(Enemy_List_Number);
+                            }
+                        }
+                    }
+                    if (Enemy_List_3[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released || Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+                    {
+                        Enemy_Count++;
+                        if (Enemy_List_3[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 200)
+                        {
+                            if (Enemy_Count >= 3)
+                            {
+                                Enemy_List_Number = i;
+                                Enemy_Kill_Total++;
+                                Enemy_Count = 0;
+                                Enemy_List_3.RemoveAt(Enemy_List_Number);
+                            }
+                        }   
+                    }
                 }
             }
             //timer
@@ -228,12 +331,52 @@ namespace Medeval_Fight
                 Total_Timer++;
                 Tick_Counter = 0;
             }
+            //level code
+            if (Enemy_Kill_Total == 10)
+            {
+                Level_1 = false;
+                Level_2 = true;
+            }
+            if (Enemy_Kill_Total == 25)
+            {
+                Level_1 = false;
+                Level_2 = false;
+                Level_3 = true;
+            }
+            if (Enemy_Kill_Total == 50)
+            {
+                Level_1 = false;
+                Level_2 = false;
+                Level_3 = false;
+                Level_4 = true;
+            }
+            if (Enemy_Kill_Total == 75)
+            {
+                Level_1 = false;
+                Level_2 = false;
+                Level_3 = false;
+                Level_4 = false;
+                Level_5 = true;
+            }
+            if (Enemy_Kill_Total == 100)
+            {
+                Level_1 = false;
+                Level_2 = false;
+                Level_3 = false;
+                Level_4 = false;
+                Level_5 = false;
+            }
             Last_Click_Mouse = Mouse_State;
             Push_Keyboard_State = Keyboard_State;
         }
         public void Exit_Screen_Update_State()
         {
-            Exit();
+            Mouse_State = Mouse.GetState();
+            if (Exit_Button_Rec.Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+            {
+                Exit();
+            }
+            Last_Click_Mouse = Mouse_State;
         }
         protected override void Draw(GameTime gameTime)
         {
@@ -305,8 +448,10 @@ namespace Medeval_Fight
             if (Character_Pick == false)
             {
                 spriteBatch.Draw(Menu_Screen_Tex, Menu_Screen_Rec, Color.White);
-                spriteBatch.Draw(Player_Character_Sage_Front_Tex, Player_Pick_Rec, Color.White);
+                spriteBatch.Draw(Player_Character_Sage_Front_Tex, Player_Sage_Pick_Rec, Color.White);
                 spriteBatch.DrawString(Main_Font, "Sage", new Vector2(50, 180), Color.Brown);
+                spriteBatch.Draw(Player_Character_Lance_Front_Tex, Player_Lance_Pick_Rec, Color.White);
+                spriteBatch.DrawString(Main_Font, "Lance", new Vector2(225, 180), Color.Brown);
             }
             if (Character_Pick == true)
             {
@@ -317,29 +462,54 @@ namespace Medeval_Fight
                         spriteBatch.Draw(Grass_Tile_Tex, BG_Grid[i, j], Color.White);
                     }
                 }
-                spriteBatch.Draw(House_Tile_Tex, BG_Grid[2, 1], Color.White);
-                spriteBatch.Draw(House_Tile_Tex, BG_Grid[3, 3], Color.White);
+                spriteBatch.Draw(House_Tile_Tex, BG_Grid[2 , 1], Color.White);
+                spriteBatch.Draw(House_Tile_Tex, BG_Grid[3 , 3], Color.White);
+                spriteBatch.Draw(House_2_Tex, BG_Grid[1 , 2], Color.White);
+                spriteBatch.Draw(House_2_Tex, BG_Grid[3 , 1], Color.White);
                 for (int i = 0; i < 9; i++)
                 {
                     spriteBatch.Draw(Road_Tile_Tex, BG_Grid[4, i], Color.White);
                     spriteBatch.Draw(Road_Tile_Tex, BG_Grid[i, 4], Color.White);
                 }
-                spriteBatch.Draw(Player_Character_Current_Tex, Player_Character_Rec, Color.White);
+                spriteBatch.Draw(Player_Character_Current_Tex, Player_Current_Character_Rec, Color.White);
                 spriteBatch.DrawString(Main_Font, Total_Timer.ToString(), new Vector2(0, 0), Color.Brown);
-                spriteBatch.DrawString(Main_Font, Enemy_List.Count.ToString(), new Vector2(0, 60), Color.Brown);
-                if (Enemy_List.Count == 0)
-                {
-                    Game_State = GameState.Exit_Screen;
-                }
+                spriteBatch.DrawString(Main_Font, "Enemies Killed: " + Enemy_Kill_Total.ToString(), new Vector2(30, 0), Color.Brown);
                 if (Enemy_List.Count >= 1)
                 {
-                    spriteBatch.Draw(Enemy_Tex, Enemy_List[0], Color.White);
+                    for (int i = 0; i < Enemy_List.Count; i++)
+                    {
+                        spriteBatch.Draw(Enemy_Tex, Enemy_List[i], Color.White);
+                        spriteBatch.Draw(Enemy_Tex, Enemy_List_2[i], Color.White);
+                        spriteBatch.Draw(Enemy_Tex, Enemy_List_3[i], Color.White);
+                    }
+                }
+                if (Level_1 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, Levels[0], new Vector2(300, 0), Color.Brown);
+                }
+                if (Level_2 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, Levels[1], new Vector2(300, 0), Color.Brown);
+                }
+                if (Level_3 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, Levels[2], new Vector2(300, 0), Color.Brown);
+                }
+                if (Level_4 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, Levels[3], new Vector2(300, 0), Color.Brown);
+                }
+                if (Level_5 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, Levels[4], new Vector2(300, 0), Color.Brown);
                 }
             }
         }
         public void Exit_Screen_Draw_State()
         {
-
+            spriteBatch.Draw(Menu_Screen_Tex, Menu_Screen_Rec, Color.White);
+            spriteBatch.Draw(Exit_Button_Tex, Exit_Button_Rec, Color.Brown);
+            spriteBatch.DrawString(Main_Font, "You killed " + Enemy_Kill_Total.ToString() + " Enemies.", new Vector2(145, 300), Color.Brown);
         }
     }
 }

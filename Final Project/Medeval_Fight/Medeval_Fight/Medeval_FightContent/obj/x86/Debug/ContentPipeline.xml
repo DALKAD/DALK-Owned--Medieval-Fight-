@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Left.xnb</Output>
-      <Time>2013-12-29T16:18:56.8363336-05:00</Time>
+      <Time>2014-01-08T12:08:49.7711896-05:00</Time>
     </Item>
     <Item>
       <Source>Player_Sage_Right.png</Source>
@@ -116,7 +116,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Right.xnb</Output>
-      <Time>2013-12-29T16:18:56.8529131-05:00</Time>
+      <Time>2014-01-08T12:08:49.7901896-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Layer_Lance_Front.png</Source>
+      <Name>Layer_Lance_Front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Layer_Lance_Front.xnb</Output>
+      <Time>2014-01-08T12:23:48.2227518-05:00</Time>
+    </Item>
+    <Item>
+      <Source>house2.png</Source>
+      <Name>house2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\house2.xnb</Output>
+      <Time>2014-01-09T12:05:27.4122214-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
