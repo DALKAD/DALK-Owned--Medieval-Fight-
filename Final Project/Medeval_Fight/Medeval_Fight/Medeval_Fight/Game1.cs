@@ -28,9 +28,9 @@ namespace Medeval_Fight
         Texture2D Menu_Screen_Tex, Exit_Button_Tex, Start_Button_Tex, Info_Button_Tex, House_2_Tex, Grass_Tile_Tex, House_Tile_Tex, Road_Tile_Tex, Enemy_Tex, Player_Character_Current_Tex,
             Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex, Player_Character_Sage_Right_Tex, Player_Character_Sage_Left_Tex, Player_Character_Lance_Front_Tex;
         //Integers cuhhhh
-        int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer, Tick_Counter, Enemy_Count, Enemy_Kill_Total, Enemy_List_Number;
+        int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer_Seconds, Total_Timer_Minutes = 0, Tick_Counter, Enemy_Count_1, Enemy_Count_2, Enemy_Count_3, Enemy_Kill_Total, Enemy_List_Number;
         //booleans
-        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Lance_Settings, Remove_From_List_One, Remove_From_List_Two, Remove_From_List_Three;
+        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Lance_Settings, Test;
         //Grids  zVX
         Rectangle[,] BG_Grid = new Rectangle[9, 9];
         //Dem random number generators
@@ -70,10 +70,10 @@ namespace Medeval_Fight
             Player_Sage_Pick_Rec = new Rectangle(50, 300, 60, 60);
             Player_Lance_Pick_Rec = new Rectangle(225, 300, 60, 60);
             Enemy_Rec_1 = new Rectangle(400, 400, 60, 60);
-            Enemy_Rec_2 = new Rectangle(400, 400, 60, 60);
-            Enemy_Rec_3 = new Rectangle(400, 400, 60, 60);
-            Enemy_Rec_4 = new Rectangle(400, 400, 60, 60);
-            Enemy_Rec_5 = new Rectangle(400, 400, 60, 60);
+            Enemy_Rec_2 = new Rectangle(340, 400, 60, 60);
+            Enemy_Rec_3 = new Rectangle(280, 400, 60, 60);
+            Enemy_Rec_4 = new Rectangle(450, 400, 60, 60);
+            Enemy_Rec_5 = new Rectangle(200, 400, 60, 60);
             Enemy_Rec_6 = new Rectangle(100, 400, 60, 60);
             Enemy_Rec_7 = new Rectangle(100, 400, 60, 60);
             Enemy_Rec_8 = new Rectangle(100, 400, 60, 60);
@@ -109,20 +109,10 @@ namespace Medeval_Fight
             Enemy_List_2 = new List<Rectangle>();
             Enemy_List_3 = new List<Rectangle>();
             Enemy_List.Add(Enemy_Rec_1);
-            //Enemy_List.Add(Enemy_Rec_2);
-            //Enemy_List.Add(Enemy_Rec_3);
-            //Enemy_List.Add(Enemy_Rec_4);
-            //Enemy_List.Add(Enemy_Rec_5);
-            Enemy_List_2.Add(Enemy_Rec_6);
-            //Enemy_List_2.Add(Enemy_Rec_7);
-            //Enemy_List_2.Add(Enemy_Rec_8);
-            //Enemy_List_2.Add(Enemy_Rec_9);
-            //Enemy_List_2.Add(Enemy_Rec_10);
-            Enemy_List_3.Add(Enemy_Rec_11);
-            //Enemy_List_3.Add(Enemy_Rec_12);
-            //Enemy_List_3.Add(Enemy_Rec_13);
-            //Enemy_List_3.Add(Enemy_Rec_14);
-            //Enemy_List_3.Add(Enemy_Rec_15);
+            Enemy_List.Add(Enemy_Rec_2);
+            Enemy_List.Add(Enemy_Rec_3);
+            Enemy_List.Add(Enemy_Rec_4);
+            Enemy_List.Add(Enemy_Rec_5);
             for (int i = 0; i < BG_Grid.GetLength(0); i++)
             {
                 for (int j = 0; j < BG_Grid.GetLength(1); j++)
@@ -280,47 +270,122 @@ namespace Medeval_Fight
             {
                 if (Sage_Settings == true)
                 {
-                    if (Enemy_List[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released || Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+                    if (Enemy_List[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
-                        Enemy_Count++;
                         if (Enemy_List[i].X - Player_Current_Character_Rec.X < 200 && Enemy_List[i].Y - Player_Current_Character_Rec.Y < 200)
                         {
-                            if (Enemy_Count >= 3)
+                            Enemy_Count_1++;
+                            if (Enemy_Count_1 >= 3)
                             {
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
-                                Enemy_Count = 0;
+                                Enemy_Count_1 = 0;
+                                Enemy_List.RemoveAt(Enemy_List_Number);
+                                Enemy_List.Add(Enemy_Rec_2);
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < Enemy_List_2.Count; i++)
+            {
+                if (Sage_Settings == true)
+                {
+                    if (Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+                    {
+                        if (Enemy_List_2[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 200)
+                        {
+                            Enemy_Count_2++;
+                            if (Enemy_Count_2 >= 3)
+                            {
+                                Enemy_List_Number = i;
+                                Enemy_Kill_Total++;
+                                Enemy_Count_2 = 0;
+                                Enemy_List_2.RemoveAt(Enemy_List_Number);
+                                Enemy_List.Add(Enemy_Rec_2);
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < Enemy_List_3.Count; i++)
+            {
+                if (Sage_Settings == true)
+                {
+                    if (Enemy_List_3[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+                    {
+                        if (Enemy_List_3[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 200)
+                        {
+                            Enemy_Count_3++;
+                            if (Enemy_Count_3 >= 3)
+                            {
+                                Enemy_List_Number = i;
+                                Enemy_Kill_Total++;
+                                Enemy_Count_3 = 0;
+                                Enemy_List_3.RemoveAt(Enemy_List_Number);
+                            }
+                        }
+                    }
+                }
+            }
+            //attack code for lance
+            for (int i = 0; i < Enemy_List.Count; i++)
+            {
+                if (Lance_Settings == true)
+                {
+                    if (Enemy_List[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+                    {
+                        if (Enemy_List[i].X - Player_Current_Character_Rec.X < 200 && Enemy_List[i].Y - Player_Current_Character_Rec.Y < 50)
+                        {
+                            Enemy_Count_1++;
+                            if (Enemy_Count_1 >= 5)
+                            {
+                                Enemy_List_Number = i;
+                                Enemy_Kill_Total++;
+                                Enemy_Count_1 = 0;
                                 Enemy_List.RemoveAt(Enemy_List_Number);
                             }
                         }
                     }
-                    if (Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released || Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+                }
+            }
+            for (int i = 0; i < Enemy_List_2.Count; i++)
+            {
+                if (Lance_Settings == true)
+                {
+                    if (Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
-                        Enemy_Count++;
-                        if (Enemy_List_2[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 200)
+                        if (Enemy_List_2[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 50)
                         {
-                            if (Enemy_Count >= 3)
+                            Enemy_Count_2++;
+                            if (Enemy_Count_2 >= 5)
                             {
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
-                                Enemy_Count = 0;
+                                Enemy_Count_2 = 0;
                                 Enemy_List_2.RemoveAt(Enemy_List_Number);
                             }
                         }
                     }
-                    if (Enemy_List_3[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released || Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
+                }
+            }
+            for (int i = 0; i < Enemy_List_3.Count; i++)
+            {
+                if (Lance_Settings == true)
+                {
+                    if (Enemy_List_3[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
-                        Enemy_Count++;
-                        if (Enemy_List_3[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 200)
+                        if (Enemy_List_3[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 50)
                         {
-                            if (Enemy_Count >= 3)
+                            Enemy_Count_3++;
+                            if (Enemy_Count_3 >= 5)
                             {
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
-                                Enemy_Count = 0;
+                                Enemy_Count_3 = 0;
                                 Enemy_List_3.RemoveAt(Enemy_List_Number);
                             }
-                        }   
+                        }
                     }
                 }
             }
@@ -328,8 +393,13 @@ namespace Medeval_Fight
             Tick_Counter++;
             if (Tick_Counter == 60)
             {
-                Total_Timer++;
+                Total_Timer_Seconds++;
                 Tick_Counter = 0;
+                if (Total_Timer_Seconds == 60)
+                {
+                    Total_Timer_Minutes++;
+                    Total_Timer_Seconds = 0;
+                }
             }
             //level code
             if (Enemy_Kill_Total == 10)
@@ -472,36 +542,48 @@ namespace Medeval_Fight
                     spriteBatch.Draw(Road_Tile_Tex, BG_Grid[i, 4], Color.White);
                 }
                 spriteBatch.Draw(Player_Character_Current_Tex, Player_Current_Character_Rec, Color.White);
-                spriteBatch.DrawString(Main_Font, Total_Timer.ToString(), new Vector2(0, 0), Color.Brown);
-                spriteBatch.DrawString(Main_Font, "Enemies Killed: " + Enemy_Kill_Total.ToString(), new Vector2(30, 0), Color.Brown);
-                if (Enemy_List.Count >= 1)
-                {
-                    for (int i = 0; i < Enemy_List.Count; i++)
-                    {
-                        spriteBatch.Draw(Enemy_Tex, Enemy_List[i], Color.White);
-                        spriteBatch.Draw(Enemy_Tex, Enemy_List_2[i], Color.White);
-                        spriteBatch.Draw(Enemy_Tex, Enemy_List_3[i], Color.White);
-                    }
-                }
+                spriteBatch.DrawString(Main_Font, "Minutes:" + Total_Timer_Minutes.ToString() + " "+ "Seconds:" + Total_Timer_Seconds.ToString(), new Vector2(0, 0), Color.Brown);
+                //if (Enemy_List_2.Count >= 1)
+                //{
+                //    for (int i = 0; i < Enemy_List_2.Count; i++)
+                //    {
+                //        spriteBatch.Draw(Enemy_Tex, Enemy_List_2[i], Color.White);
+                //    }
+                //}
+                //if (Enemy_List_3.Count >= 1)
+                //{
+                //    for (int i = 0; i < Enemy_List_3.Count; i++)
+                //    {
+                //        spriteBatch.Draw(Enemy_Tex, Enemy_List_3[i], Color.White);
+                //    }
+                //}
                 if (Level_1 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, Levels[0], new Vector2(300, 0), Color.Brown);
+                    spriteBatch.DrawString(Main_Font, Levels[0], new Vector2(430, 0), Color.Brown);
+                    if (Enemy_List.Count >= 1)
+                    {
+                        for (int i = 0; i < Enemy_List.Count; i++)
+                        {
+                            spriteBatch.Draw(Enemy_Tex, Enemy_List[i], Color.White);
+                        }
+                    }
                 }
                 if (Level_2 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, Levels[1], new Vector2(300, 0), Color.Brown);
+                    spriteBatch.DrawString(Main_Font, Levels[1], new Vector2(430, 0), Color.Brown);
+                    Game_State = GameState.Exit_Screen;
                 }
                 if (Level_3 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, Levels[2], new Vector2(300, 0), Color.Brown);
+                    spriteBatch.DrawString(Main_Font, Levels[2], new Vector2(430, 0), Color.Brown);
                 }
                 if (Level_4 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, Levels[3], new Vector2(300, 0), Color.Brown);
+                    spriteBatch.DrawString(Main_Font, Levels[3], new Vector2(430, 0), Color.Brown);
                 }
                 if (Level_5 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, Levels[4], new Vector2(300, 0), Color.Brown);
+                    spriteBatch.DrawString(Main_Font, Levels[4], new Vector2(430, 0), Color.Brown);
                 }
             }
         }
@@ -509,7 +591,7 @@ namespace Medeval_Fight
         {
             spriteBatch.Draw(Menu_Screen_Tex, Menu_Screen_Rec, Color.White);
             spriteBatch.Draw(Exit_Button_Tex, Exit_Button_Rec, Color.Brown);
-            spriteBatch.DrawString(Main_Font, "You killed " + Enemy_Kill_Total.ToString() + " Enemies.", new Vector2(145, 300), Color.Brown);
+            spriteBatch.DrawString(Main_Font, "You killed " + Enemy_Kill_Total.ToString() + " Enemies.", new Vector2(110, 300), Color.Brown);
         }
     }
 }
