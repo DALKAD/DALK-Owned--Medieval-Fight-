@@ -93,14 +93,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Medeval_Fight.exe" size="22528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Medeval_Fight.exe" size="24064">
       <assemblyIdentity name="Medeval_Fight" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7h+suryU7qpapcdnhzB4qCAR9Yg=</dsig:DigestValue>
+        <dsig:DigestValue>Vr5kC0AM98OQSsFYmgv5Rox+RBk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -129,6 +129,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>/DF0pZ9EQUPmjp4SN/NlLRvUod4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\heart.xnb" size="360187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>V8wU9tkLv45OuiLIZle8MoQlCJA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\house.xnb" size="307387">
