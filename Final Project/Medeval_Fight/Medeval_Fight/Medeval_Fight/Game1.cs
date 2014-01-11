@@ -29,7 +29,7 @@ namespace Medeval_Fight
             Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex, Player_Character_Sage_Right_Tex, Player_Character_Sage_Left_Tex, Player_Character_Lance_Front_Right_Tex, Player_Character_Lance_Back_Left_Tex, Player_Axe_Man_Front_Right
             ,Player_Axe_Man_Back_Left;
         //Integers cuhhhh
-        int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer_Seconds, Total_Timer_Minutes = 0, Tick_Counter, Enemy_Count_1, Enemy_Count_2, Enemy_Count_3, Enemy_Kill_Total, Enemy_List_Number;
+        int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer_Seconds, Total_Timer_Minutes = 0, Tick_Counter, Enemy_Count_1, Enemy_Count_2, Enemy_Count_3, Enemy_Kill_Total, Enemy_List_Number, X_E, Y_E;
         //booleans
         bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Lance_Settings, Axe_Settings;
         //Grids  zVX
@@ -71,21 +71,21 @@ namespace Medeval_Fight
             Player_Sage_Pick_Rec = new Rectangle(50, 300, 60, 60);
             Player_Lance_Pick_Rec = new Rectangle(225, 300, 60, 60);
             Player_Axe_Man_Rec = new Rectangle(400, 300, 60, 60);
-            Enemy_Rec_1 = new Rectangle(400, 400, 60, 60);
-            Enemy_Rec_2 = new Rectangle(340, 400, 60, 60);
-            Enemy_Rec_3 = new Rectangle(280, 400, 60, 60);
-            Enemy_Rec_4 = new Rectangle(450, 400, 60, 60);
-            Enemy_Rec_5 = new Rectangle(200, 400, 60, 60);
-            Enemy_Rec_6 = new Rectangle(100, 400, 60, 60);
-            Enemy_Rec_7 = new Rectangle(100, 400, 60, 60);
-            Enemy_Rec_8 = new Rectangle(100, 400, 60, 60);
-            Enemy_Rec_9 = new Rectangle(100, 400, 60, 60);
-            Enemy_Rec_10 = new Rectangle(100, 400, 60, 60);
-            Enemy_Rec_11 = new Rectangle(200, 400, 60, 60);
-            Enemy_Rec_12 = new Rectangle(200, 400, 60, 60);
-            Enemy_Rec_13 = new Rectangle(200, 400, 60, 60);
-            Enemy_Rec_14 = new Rectangle(200, 400, 60, 60);
-            Enemy_Rec_15 = new Rectangle(200, 400, 60, 60);
+            Enemy_Rec_1 = new Rectangle(400, 400, 40, 40);
+            Enemy_Rec_2 = new Rectangle(340, 400, 40, 40);
+            Enemy_Rec_3 = new Rectangle(280, 400, 40, 40);
+            Enemy_Rec_4 = new Rectangle(450, 400, 40, 40);
+            Enemy_Rec_5 = new Rectangle(200, 400, 40, 40);
+            Enemy_Rec_6 = new Rectangle(100, 300, 40, 40);
+            Enemy_Rec_7 = new Rectangle(100, 300, 40, 40);
+            Enemy_Rec_8 = new Rectangle(100, 300, 40, 40);
+            Enemy_Rec_9 = new Rectangle(100, 300, 40, 40);
+            Enemy_Rec_10 = new Rectangle(100, 300, 40, 40);
+            Enemy_Rec_11 = new Rectangle(200, 400, 40, 40);
+            Enemy_Rec_12 = new Rectangle(200, 400, 40, 40);
+            Enemy_Rec_13 = new Rectangle(200, 400, 40, 40);
+            Enemy_Rec_14 = new Rectangle(200, 400, 40, 40);
+            Enemy_Rec_15 = new Rectangle(200, 400, 40, 40);
             base.Initialize();
         }
         protected override void LoadContent()
@@ -120,6 +120,14 @@ namespace Medeval_Fight
             Enemy_List.Add(Enemy_Rec_3);
             Enemy_List.Add(Enemy_Rec_4);
             Enemy_List.Add(Enemy_Rec_5);
+            Enemy_List.Add(Enemy_Rec_6);
+            Enemy_List.Add(Enemy_Rec_7);
+            Enemy_List.Add(Enemy_Rec_8);
+            Enemy_List.Add(Enemy_Rec_9);
+            Enemy_List.Add(Enemy_Rec_10);
+            Enemy_List_2.Add(Enemy_Rec_11);
+            Enemy_List_2.Add(Enemy_Rec_12);
+            Enemy_List_2.Add(Enemy_Rec_13);
             for (int i = 0; i < BG_Grid.GetLength(0); i++)
             {
                 for (int j = 0; j < BG_Grid.GetLength(1); j++)
@@ -278,6 +286,8 @@ namespace Medeval_Fight
                 }
                 Player_Current_Character_Rec.X += 20;
             }
+            X_E++;
+            Y_E++;
             //attack code sage (ranged attack but weaker)
             for (int i = 0; i < Enemy_List.Count; i++)
             {
@@ -294,7 +304,6 @@ namespace Medeval_Fight
                                 Enemy_Kill_Total++;
                                 Enemy_Count_1 = 0;
                                 Enemy_List.RemoveAt(Enemy_List_Number);
-                                Enemy_List.Add(Enemy_Rec_2);
                             }
                         }
                     }
@@ -306,7 +315,7 @@ namespace Medeval_Fight
                 {
                     if (Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
-                        if (Enemy_List_2[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 200)
+                        if (Enemy_List_2[i].X - Player_Current_Character_Rec.X < 200 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 200)
                         {
                             Enemy_Count_2++;
                             if (Enemy_Count_2 >= 3)
@@ -314,7 +323,7 @@ namespace Medeval_Fight
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
                                 Enemy_Count_2 = 0;
-                                Enemy_List.Add(Enemy_Rec_2);
+                                Enemy_List_2.RemoveAt(Enemy_List_Number);
                             }
                         }
                     }
@@ -326,7 +335,7 @@ namespace Medeval_Fight
                 {
                     if (Enemy_List_3[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
-                        if (Enemy_List_3[i].Y - Player_Current_Character_Rec.X < 200 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 200)
+                        if (Enemy_List_3[i].X - Player_Current_Character_Rec.X < 200 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 200)
                         {
                             Enemy_Count_3++;
                             if (Enemy_Count_3 >= 3)
@@ -367,7 +376,7 @@ namespace Medeval_Fight
                 {
                     if (Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
-                        if (Enemy_List_2[i].Y - Player_Current_Character_Rec.X < 50 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 50)
+                        if (Enemy_List_2[i].X - Player_Current_Character_Rec.X < 50 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 50)
                         {
                             Enemy_Count_2++;
                             if (Enemy_Count_2 >= 5)
@@ -387,7 +396,7 @@ namespace Medeval_Fight
                 {
                     if (Enemy_List_3[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
-                        if (Enemy_List_3[i].Y - Player_Current_Character_Rec.X < 50 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 50)
+                        if (Enemy_List_3[i].X - Player_Current_Character_Rec.X < 50 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 50)
                         {
                             Enemy_Count_3++;
                             if (Enemy_Count_3 >= 5)
@@ -429,7 +438,7 @@ namespace Medeval_Fight
                 {
                     if (Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
-                        if (Enemy_List_2[i].Y - Player_Current_Character_Rec.X < 75 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 75)
+                        if (Enemy_List_2[i].X - Player_Current_Character_Rec.X < 75 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 75)
                         {
                             Enemy_Count_2++;
                             if (Enemy_Count_2 >= 5)
@@ -449,7 +458,7 @@ namespace Medeval_Fight
                 {
                     if (Enemy_List_3[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
-                        if (Enemy_List_3[i].Y - Player_Current_Character_Rec.X < 75 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 75)
+                        if (Enemy_List_3[i].X - Player_Current_Character_Rec.X < 75 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 75)
                         {
                             Enemy_Count_3++;
                             if (Enemy_Count_3 >= 5)
@@ -629,7 +638,7 @@ namespace Medeval_Fight
                     {
                         for (int i = 0; i < Enemy_List.Count; i++)
                         {
-                            spriteBatch.Draw(Enemy_Tex_2, Enemy_List[i], Color.White);
+                            spriteBatch.Draw(Enemy_Tex_1, Enemy_List[i], Color.White);
                         }
                     }
                 }
@@ -640,7 +649,7 @@ namespace Medeval_Fight
                     {
                         for (int i = 0; i < Enemy_List_2.Count; i++)
                         {
-                            spriteBatch.Draw(Enemy_Tex_1, Enemy_List[i], Color.White);
+                            spriteBatch.Draw(Enemy_Tex_2, Enemy_List_2[i], Color.White);
                         }
                     }
                 }
