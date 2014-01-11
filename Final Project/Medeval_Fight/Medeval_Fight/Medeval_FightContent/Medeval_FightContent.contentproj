@@ -121,15 +121,46 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Layer_Lance_Front.png">
-      <Name>Layer_Lance_Front</Name>
+    <Compile Include="house2.png">
+      <Name>house2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="house2.png">
-      <Name>house2</Name>
+    <Compile Include="zombie.png">
+      <Name>zombie</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player_Lance_Back_Left.png">
+      <Name>Player_Lance_Back_Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player_Lance_Front_Right.png">
+      <Name>Player_Lance_Front_Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player_Axe_Man_Front.png">
+      <Name>Player_Axe_Man_Front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player_Axe_Man_Right.png">
+      <Name>Player_Axe_Man_Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="spider.png">
+      <Name>spider</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

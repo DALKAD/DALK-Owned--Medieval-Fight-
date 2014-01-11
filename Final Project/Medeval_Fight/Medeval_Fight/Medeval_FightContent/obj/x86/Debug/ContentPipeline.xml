@@ -119,15 +119,6 @@
       <Time>2014-01-08T12:08:49.7901896-05:00</Time>
     </Item>
     <Item>
-      <Source>Layer_Lance_Front.png</Source>
-      <Name>Layer_Lance_Front</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Layer_Lance_Front.xnb</Output>
-      <Time>2014-01-08T12:23:48.2227518-05:00</Time>
-    </Item>
-    <Item>
       <Source>house2.png</Source>
       <Name>house2</Name>
       <Importer>TextureImporter</Importer>
@@ -135,6 +126,60 @@
       <Options>None</Options>
       <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\house2.xnb</Output>
       <Time>2014-01-09T12:05:27.4122214-05:00</Time>
+    </Item>
+    <Item>
+      <Source>zombie.png</Source>
+      <Name>zombie</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\zombie.xnb</Output>
+      <Time>2014-01-10T17:12:27.2377451-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Lance_Back_Left.png</Source>
+      <Name>Player_Lance_Back_Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Back_Left.xnb</Output>
+      <Time>2014-01-10T21:21:51.4339548-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Lance_Front_Right.png</Source>
+      <Name>Player_Lance_Front_Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Front_Right.xnb</Output>
+      <Time>2014-01-10T21:21:51.4492656-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Axe_Man_Front.png</Source>
+      <Name>Player_Axe_Man_Front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Axe_Man_Front.xnb</Output>
+      <Time>2014-01-10T21:30:43.8450423-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Axe_Man_Right.png</Source>
+      <Name>Player_Axe_Man_Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Axe_Man_Right.xnb</Output>
+      <Time>2014-01-10T21:30:43.8661428-05:00</Time>
+    </Item>
+    <Item>
+      <Source>spider.png</Source>
+      <Name>spider</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\spider.xnb</Output>
+      <Time>2014-01-10T22:05:53.734744-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -173,8 +218,8 @@
         <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-08-26T16:12:28.988172-04:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-10-26T20:58:10.9036769-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
