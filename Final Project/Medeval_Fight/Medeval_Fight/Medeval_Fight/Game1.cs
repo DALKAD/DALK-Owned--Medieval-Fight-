@@ -30,9 +30,11 @@ namespace Medeval_Fight
             Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex, Player_Character_Sage_Right_Tex, Player_Character_Sage_Left_Tex, Player_Character_Lance_Front_Right_Tex, Player_Character_Lance_Back_Left_Tex, Player_Axe_Man_Front_Right_Tex
             ,Player_Axe_Man_Back_Left_Tex, Health_Tex;
         //Integers cuhhhh
-        int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer_Seconds, Total_Timer_Minutes = 0, Tick_Counter, Enemy_Count_1, Enemy_Count_2, Enemy_Count_3, Enemy_Kill_Total, Enemy_List_Number, X_E, Y_E;
+        int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer_Seconds, Total_Timer_Minutes = 0, Tick_Counter, Enemy_Count_1, Enemy_Count_2, Enemy_Count_3, Enemy_Kill_Total, Enemy_List_Number, Enemy_Random_Generator
+            ,Enemy_Damage_Counter, Sage_Health, Lance_Health, Axe_Health;
         //booleans
-        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Lance_Settings, Axe_Settings;
+        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Lance_Settings, Axe_Settings, Enemy_Damage_1,
+            Enemy_Damage_2, Enemy_Damage_3, Enemy_Damage_4, Enemy_Damage_5, Enemy_Damage_6, Enemy_Damage_7, Enemy_Damage_8, Enemy_Damage_9, Enemy_Damage_10;
         //Grids 
         Rectangle[,] BG_Grid = new Rectangle[9, 9];
         //Dem random number generators
@@ -49,6 +51,7 @@ namespace Medeval_Fight
         {
             Splash_Screen, Menu_Screen, Game_Play_Screen, Exit_Screen
         }
+        //vectors
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -101,11 +104,11 @@ namespace Medeval_Fight
             Enemy_Rec_28 = new Rectangle(270, 400, 40, 40);
             Enemy_Rec_29 = new Rectangle(270, 400, 40, 40);
             Enemy_Rec_30 = new Rectangle(270, 400, 40, 40);
-            Health_1_Rec = new Rectangle(275, 5, 20, 20);
-            Health_2_Rec = new Rectangle(300, 5, 20, 20);
-            Health_3_Rec = new Rectangle(325, 5, 20, 20);
-            Health_4_Rec = new Rectangle(350, 5, 20, 20);
-            Health_5_Rec = new Rectangle(375, 5, 20, 20);
+            Health_1_Rec = new Rectangle(285, 5, 20, 20);
+            Health_2_Rec = new Rectangle(310, 5, 20, 20);
+            Health_3_Rec = new Rectangle(335, 5, 20, 20);
+            Health_4_Rec = new Rectangle(360, 5, 20, 20);
+            Health_5_Rec = new Rectangle(385, 5, 20, 20);
             base.Initialize();
         }
         protected override void LoadContent()
@@ -146,7 +149,7 @@ namespace Medeval_Fight
             Enemy_List.Add(Enemy_Rec_8);
             Enemy_List.Add(Enemy_Rec_9);
             Enemy_List.Add(Enemy_Rec_10);
-            Enemy_List_2.Add(Enemy_Rec_11);
+            Enemy_List.Add(Enemy_Rec_11);
             Enemy_List_2.Add(Enemy_Rec_12);
             Enemy_List_2.Add(Enemy_Rec_13);
             Enemy_List_2.Add(Enemy_Rec_14);
@@ -324,8 +327,6 @@ namespace Medeval_Fight
                 }
                 Player_Current_Character_Rec.X += 20;
             }
-            X_E++;
-            Y_E++;
             //attack code sage (ranged attack but weaker)
             for (int i = 0; i < Enemy_List.Count; i++)
             {
@@ -523,7 +524,7 @@ namespace Medeval_Fight
                 }
             }
             //level code
-            if (Enemy_Kill_Total == 10)
+            if (Enemy_Kill_Total >= 8)
             {
                 Level_1 = false;
                 Level_2 = true;
@@ -558,7 +559,315 @@ namespace Medeval_Fight
                 Level_5 = false;
             }
             //enemy attack code
-         
+            if (Level_2 == true)
+            {
+                if (Enemy_Damage_Counter > 250)
+                {
+                    Enemy_Random_Generator = Enemy_Attack_Generator.Next(0, 3);
+                    if (Enemy_Random_Generator == 1)
+                    {
+                        Enemy_Damage_1 = true;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                    }
+                    if (Enemy_Random_Generator == 2)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = true;
+                        Enemy_Damage_3 = false;
+                    }
+                    if (Enemy_Random_Generator == 3)
+                    {
+                        Enemy_Damage_1 = false ;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = true;
+                    }
+                    Enemy_Damage_Counter = 0;
+                }
+            }
+            if (Level_3 == true)
+            {
+                if (Enemy_Damage_Counter == 230)
+                {
+                    Enemy_Random_Generator = Enemy_Attack_Generator.Next(0, 6);
+                    if (Enemy_Random_Generator == 1)
+                    {
+                        Enemy_Damage_1 = true;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                    }
+                    if (Enemy_Random_Generator == 2)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = true;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                    }
+                    if (Enemy_Random_Generator == 3)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = true;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                    }
+                    if (Enemy_Random_Generator == 4)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = true;
+                        Enemy_Damage_5 = false;
+                    }
+                    if (Enemy_Random_Generator == 5)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = true;
+                    }
+                    Enemy_Damage_Counter = 0;
+                }
+            }
+            if (Level_4 == true)
+            {
+                if (Enemy_Damage_Counter == 220)
+                {
+                    Enemy_Random_Generator = Enemy_Attack_Generator.Next(0, 8);
+                    if (Enemy_Random_Generator == 1)
+                    {
+                        Enemy_Damage_1 = true;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                    }
+                    if (Enemy_Random_Generator == 2)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = true;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                    }
+                    if (Enemy_Random_Generator == 3)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = true;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                    }
+                    if (Enemy_Random_Generator == 4)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = true;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                    }
+                    if (Enemy_Random_Generator == 5)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = true;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                    }
+                    if (Enemy_Random_Generator == 6)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = true;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                    }
+                    if (Enemy_Random_Generator == 7)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = true;
+                        Enemy_Damage_8 = false;
+                    }
+                    if (Enemy_Random_Generator == 8)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = true;
+                    }
+                    Enemy_Damage_Counter = 0;
+                }
+            }
+            if (Level_5 == true)
+            {
+                if (Enemy_Damage_Counter == 210)
+                {
+                    Enemy_Random_Generator = Enemy_Attack_Generator.Next(0, 11);
+                    if (Enemy_Random_Generator == 1)
+                    {
+                        Enemy_Damage_1 = true;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                        Enemy_Damage_9 = false;
+                        Enemy_Damage_10 = false;
+                    }
+                    if (Enemy_Random_Generator == 2)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = true;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                        Enemy_Damage_9 = false;
+                        Enemy_Damage_10 = false;
+                    }
+                    if (Enemy_Random_Generator == 3)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = true;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                        Enemy_Damage_9 = false;
+                        Enemy_Damage_10 = false;
+                    }
+                    if (Enemy_Random_Generator == 4)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = true;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                        Enemy_Damage_9 = false;
+                        Enemy_Damage_10 = false;
+                    }
+                    if (Enemy_Random_Generator == 5)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = true;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                        Enemy_Damage_9 = false;
+                        Enemy_Damage_10 = false;
+                    }
+                    if (Enemy_Random_Generator == 6)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = true;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                        Enemy_Damage_9 = false;
+                        Enemy_Damage_10 = false;
+                    }
+                    if (Enemy_Random_Generator == 7)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = true;
+                        Enemy_Damage_8 = false;
+                        Enemy_Damage_9 = false;
+                        Enemy_Damage_10 = false;
+                    }
+                    if (Enemy_Random_Generator == 8)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = true;
+                        Enemy_Damage_9 = false;
+                        Enemy_Damage_10 = false;
+                    }
+                    if (Enemy_Random_Generator == 9)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                        Enemy_Damage_9 = true;
+                        Enemy_Damage_10 = false;
+                    }
+                    if (Enemy_Random_Generator == 10)
+                    {
+                        Enemy_Damage_1 = false;
+                        Enemy_Damage_2 = false;
+                        Enemy_Damage_3 = false;
+                        Enemy_Damage_4 = false;
+                        Enemy_Damage_5 = false;
+                        Enemy_Damage_6 = false;
+                        Enemy_Damage_7 = false;
+                        Enemy_Damage_8 = false;
+                        Enemy_Damage_9 = false;
+                        Enemy_Damage_10 = true;
+                    }
+                    Enemy_Damage_Counter = 0;
+                }
+            }
+            Enemy_Damage_Counter++;
             Last_Click_Mouse = Mouse_State;
             Push_Keyboard_State = Keyboard_State;
         }
@@ -643,10 +952,16 @@ namespace Medeval_Fight
                 spriteBatch.Draw(Menu_Screen_Tex, Menu_Screen_Rec, Color.White);
                 spriteBatch.Draw(Player_Character_Sage_Front_Tex, Player_Sage_Pick_Rec, Color.White);
                 spriteBatch.DrawString(Main_Font, "Sage", new Vector2(50, 180), Color.Brown);
+                spriteBatch.DrawString(Main_Font, "Damage: 33", new Vector2(50, 400), Color.Brown);
+                spriteBatch.DrawString(Main_Font, "Health: 50", new Vector2(50, 450), Color.Brown);
                 spriteBatch.Draw(Player_Character_Lance_Front_Right_Tex, Player_Lance_Pick_Rec, Color.White);
                 spriteBatch.DrawString(Main_Font, "Lance", new Vector2(225, 180), Color.Brown);
+                spriteBatch.DrawString(Main_Font, "Damage: 22", new Vector2(215, 400), Color.Brown);
+                spriteBatch.DrawString(Main_Font, "Health: 65", new Vector2(215, 450), Color.Brown);
                 spriteBatch.Draw(Player_Axe_Man_Front_Right_Tex, Player_Axe_Man_Rec, Color.White);
                 spriteBatch.DrawString(Main_Font, "Axe Man", new Vector2(375, 180), Color.Brown);
+                spriteBatch.DrawString(Main_Font, "Damage: 20 ", new Vector2(375, 400), Color.Brown);
+                spriteBatch.DrawString(Main_Font, "Health: 70", new Vector2(375, 450), Color.Brown);
                 
             }
             if (Character_Pick == true)
@@ -669,8 +984,6 @@ namespace Medeval_Fight
                 }
                 spriteBatch.Draw(Player_Character_Current_Tex, Player_Current_Character_Rec, Color.White);
                 spriteBatch.DrawString(Main_Font, "Minutes:" + Total_Timer_Minutes.ToString() + " "+ "Seconds:" + Total_Timer_Seconds.ToString(), new Vector2(0, 0), Color.Brown);
-
-
                 if (Level_1 == true)
                 {
                     spriteBatch.DrawString(Main_Font, Levels[0], new Vector2(430, 0), Color.Brown);
@@ -733,11 +1046,84 @@ namespace Medeval_Fight
                 {
                     spriteBatch.DrawString(Main_Font, Levels[4], new Vector2(430, 0), Color.Brown);
                 }
-                spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
-                spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
-                spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
-                spriteBatch.Draw(Health_Tex, Health_4_Rec, Color.White);
-                spriteBatch.Draw(Health_Tex, Health_5_Rec, Color.White);
+                if (Sage_Settings == true)
+                {
+                    if (Sage_Health < 50 && Sage_Health > 40)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_4_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_5_Rec, Color.White);
+                    }
+                    if (Sage_Health < 40 && Sage_Health > 30)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_4_Rec, Color.White);
+                    }
+                    if (Sage_Health < 30 && Sage_Health > 20)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
+                    }
+                    if (Sage_Health < 20 && Sage_Health > 10)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                    }
+                    if (Sage_Health < 10 && Sage_Health > 0)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                    }
+                    if (Sage_Health == 0)
+                    {
+                        Game_State = GameState.Exit_Screen;
+                    }
+                }
+                if (Enemy_Damage_1 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-1", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                if (Enemy_Damage_2 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-2", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                if (Enemy_Damage_3 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-3", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                if (Enemy_Damage_4 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-4", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                if (Enemy_Damage_5 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-5", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                if (Enemy_Damage_6 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-6", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                if (Enemy_Damage_7 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-7", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                if (Enemy_Damage_8 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-8", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                if (Enemy_Damage_9 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-9", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                if (Enemy_Damage_10 == true)
+                {
+                    spriteBatch.DrawString(Main_Font, "-10", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                }
+                spriteBatch.DrawString(Main_Font, Enemy_Kill_Total.ToString(), new Vector2 (200,200), Color.Red);
             }
         }
         public void Exit_Screen_Draw_State()
