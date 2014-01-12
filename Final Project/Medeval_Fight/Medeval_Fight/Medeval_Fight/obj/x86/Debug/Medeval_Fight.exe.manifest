@@ -93,14 +93,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Medeval_Fight.exe" size="27136">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Medeval_Fight.exe" size="31232">
       <assemblyIdentity name="Medeval_Fight" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4cv+dZutjUTuoGq7gmLM6nOlwr0=</dsig:DigestValue>
+        <dsig:DigestValue>XAVMIMybKPU/S7eScGEF0fOrC+g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -165,6 +165,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>/5H2P9W7heeubwPxjU3uW3hPJb0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Magic_Attack.xnb" size="6587">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>XaqJWWq6Oc8A9gzk1W8IQOPIPA0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Menu.xnb" size="1638187">

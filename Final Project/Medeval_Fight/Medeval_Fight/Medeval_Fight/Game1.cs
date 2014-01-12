@@ -24,17 +24,17 @@ namespace Medeval_Fight
         //Rectangles 
         Rectangle Menu_Screen_Rec,Exit_Button_Rec, Start_Button_Rec, Info_Button_Rec, House_2_Rec, Grass_Tile_Rec, House_Tile_Rec, Road_Tile_Rec , Player_Current_Character_Rec, Player_Sage_Pick_Rec, Player_Lance_Pick_Rec, Player_Axe_Man_Rec
             , Enemy_Rec_1, Enemy_Rec_2, Enemy_Rec_3, Enemy_Rec_4, Enemy_Rec_5, Enemy_Rec_6, Enemy_Rec_7, Enemy_Rec_8, Enemy_Rec_9, Enemy_Rec_10, Enemy_Rec_11, Enemy_Rec_12, Enemy_Rec_13, Enemy_Rec_14, Enemy_Rec_15, Enemy_Rec_16, Enemy_Rec_17, Enemy_Rec_18, Enemy_Rec_19, Enemy_Rec_20
-            , Enemy_Rec_21, Enemy_Rec_22, Enemy_Rec_23, Enemy_Rec_24, Enemy_Rec_25, Enemy_Rec_26, Enemy_Rec_27, Enemy_Rec_28, Enemy_Rec_29, Enemy_Rec_30, Health_1_Rec, Health_2_Rec, Health_3_Rec, Health_4_Rec, Health_5_Rec;
+            , Enemy_Rec_21, Enemy_Rec_22, Enemy_Rec_23, Enemy_Rec_24, Enemy_Rec_25, Enemy_Rec_26, Enemy_Rec_27, Enemy_Rec_28, Enemy_Rec_29, Enemy_Rec_30, Health_1_Rec, Health_2_Rec, Health_3_Rec, Health_4_Rec, Health_5_Rec, Magic_Attack_Rec;
         //Textures
         Texture2D Menu_Screen_Tex, Exit_Button_Tex, Start_Button_Tex, Info_Button_Tex, House_2_Tex, Grass_Tile_Tex, House_Tile_Tex, Road_Tile_Tex, Enemy_Tex_1, Enemy_Tex_2, Enemy_Tex_3, Player_Character_Current_Tex,
             Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex, Player_Character_Sage_Right_Tex, Player_Character_Sage_Left_Tex, Player_Character_Lance_Front_Right_Tex, Player_Character_Lance_Back_Left_Tex, Player_Axe_Man_Front_Right_Tex
-            ,Player_Axe_Man_Back_Left_Tex, Health_Tex;
+            ,Player_Axe_Man_Back_Left_Tex, Health_Tex, Magic_Attack_Tex;
         //Integers cuhhhh
         int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer_Seconds, Total_Timer_Minutes = 0, Tick_Counter, Enemy_Count_1, Enemy_Count_2, Enemy_Count_3, Enemy_Kill_Total, Enemy_List_Number, Enemy_Random_Generator
-            ,Enemy_Damage_Counter, Sage_Health, Lance_Health, Axe_Health;
+            ,Enemy_Damage_Counter, Attack_Time_Counter ,Sage_Health = 50, Lance_Health = 65, Axe_Health;
         //booleans
-        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Lance_Settings, Axe_Settings, Enemy_Damage_1,
-            Enemy_Damage_2, Enemy_Damage_3, Enemy_Damage_4, Enemy_Damage_5, Enemy_Damage_6, Enemy_Damage_7, Enemy_Damage_8, Enemy_Damage_9, Enemy_Damage_10;
+        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Sage_Attack, Lance_Settings, Axe_Settings, Enemy_Damage_1,
+            Enemy_Damage_2, Enemy_Damage_3, Enemy_Damage_4, Enemy_Damage_5, Enemy_Damage_6, Enemy_Damage_7, Enemy_Damage_8, Enemy_Damage_9, Enemy_Damage_10, Died;
         //Grids 
         Rectangle[,] BG_Grid = new Rectangle[9, 9];
         //Dem random number generators
@@ -43,6 +43,7 @@ namespace Medeval_Fight
         List<Rectangle> Enemy_List;
         List<Rectangle> Enemy_List_2;
         List<Rectangle> Enemy_List_3;
+        List<int> Current_Attacks;
         //arrays
         string[] Levels = new string[5] { "Level 1", "Level 2", "Level 3", "Level 4" , "Level 5"};
         string[] Loading = new string[5] {"Loading." , "Loading.." , "Loading..." , "Loading...." , "Loading....."};
@@ -127,6 +128,7 @@ namespace Medeval_Fight
             Enemy_Tex_1 = Content.Load<Texture2D>("Enemy");
             Enemy_Tex_2 = Content.Load<Texture2D>("zombie");
             Enemy_Tex_3 = Content.Load<Texture2D>("spider");
+            Magic_Attack_Tex = Content.Load <Texture2D>("Magic_Attack");
             Player_Character_Current_Tex = Content.Load<Texture2D>("Player_Sage_Front");
             Player_Character_Sage_Back_Tex = Content.Load<Texture2D>("Player_Sage_Back");
             Player_Character_Sage_Front_Tex = Content.Load<Texture2D>("Player_Sage_Front");
@@ -139,6 +141,8 @@ namespace Medeval_Fight
             Enemy_List = new List<Rectangle>();
             Enemy_List_2 = new List<Rectangle>();
             Enemy_List_3 = new List<Rectangle>();
+            Current_Attacks = new List<int>();
+            Current_Attacks.Add(1);
             Enemy_List.Add(Enemy_Rec_1);
             Enemy_List.Add(Enemy_Rec_2);
             Enemy_List.Add(Enemy_Rec_3);
@@ -327,7 +331,7 @@ namespace Medeval_Fight
                 }
                 Player_Current_Character_Rec.X += 20;
             }
-            //attack code sage (ranged attack but weaker)
+            //attack code sage 
             for (int i = 0; i < Enemy_List.Count; i++)
             {
                 if (Sage_Settings == true)
@@ -337,6 +341,7 @@ namespace Medeval_Fight
                         if (Enemy_List[i].X - Player_Current_Character_Rec.X < 200 && Enemy_List[i].Y - Player_Current_Character_Rec.Y < 200)
                         {
                             Enemy_Count_1++;
+                            Sage_Attack = true;
                             if (Enemy_Count_1 >= 3)
                             {
                                 Enemy_List_Number = i;
@@ -357,6 +362,7 @@ namespace Medeval_Fight
                         if (Enemy_List_2[i].X - Player_Current_Character_Rec.X < 200 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 200)
                         {
                             Enemy_Count_2++;
+                            Sage_Attack = true;
                             if (Enemy_Count_2 >= 3)
                             {
                                 Enemy_List_Number = i;
@@ -377,6 +383,7 @@ namespace Medeval_Fight
                         if (Enemy_List_3[i].X - Player_Current_Character_Rec.X < 200 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 200)
                         {
                             Enemy_Count_3++;
+                            Sage_Attack = true;
                             if (Enemy_Count_3 >= 3)
                             {
                                 Enemy_List_Number = i;
@@ -398,6 +405,7 @@ namespace Medeval_Fight
                         if (Enemy_List[i].X - Player_Current_Character_Rec.X < 200 && Enemy_List[i].Y - Player_Current_Character_Rec.Y < 50)
                         {
                             Enemy_Count_1++;
+                            Sage_Attack = true;
                             if (Enemy_Count_1 >= 5)
                             {
                                 Enemy_List_Number = i;
@@ -418,6 +426,7 @@ namespace Medeval_Fight
                         if (Enemy_List_2[i].X - Player_Current_Character_Rec.X < 50 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 50)
                         {
                             Enemy_Count_2++;
+                            Sage_Attack = true;
                             if (Enemy_Count_2 >= 5)
                             {
                                 Enemy_List_Number = i;
@@ -438,6 +447,7 @@ namespace Medeval_Fight
                         if (Enemy_List_3[i].X - Player_Current_Character_Rec.X < 50 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 50)
                         {
                             Enemy_Count_3++;
+                            Sage_Attack = true;
                             if (Enemy_Count_3 >= 5)
                             {
                                 Enemy_List_Number = i;
@@ -450,7 +460,6 @@ namespace Medeval_Fight
                 }
             }
             //axe settings
-            //attack code for lance
             for (int i = 0; i < Enemy_List.Count; i++)
             {
                 if (Lance_Settings == true)
@@ -460,6 +469,7 @@ namespace Medeval_Fight
                         if (Enemy_List[i].X - Player_Current_Character_Rec.X < 75 && Enemy_List[i].Y - Player_Current_Character_Rec.Y < 75)
                         {
                             Enemy_Count_1++;
+                            Sage_Attack = true;
                             if (Enemy_Count_1 >= 5)
                             {
                                 Enemy_List_Number = i;
@@ -480,6 +490,7 @@ namespace Medeval_Fight
                         if (Enemy_List_2[i].X - Player_Current_Character_Rec.X < 75 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 75)
                         {
                             Enemy_Count_2++;
+                            Sage_Attack = true;
                             if (Enemy_Count_2 >= 5)
                             {
                                 Enemy_List_Number = i;
@@ -500,6 +511,7 @@ namespace Medeval_Fight
                         if (Enemy_List_3[i].X - Player_Current_Character_Rec.X < 75 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 75)
                         {
                             Enemy_Count_3++;
+                            Sage_Attack = true;
                             if (Enemy_Count_3 >= 5)
                             {
                                 Enemy_List_Number = i;
@@ -524,7 +536,7 @@ namespace Medeval_Fight
                 }
             }
             //level code
-            if (Enemy_Kill_Total >= 8)
+            if (Enemy_Kill_Total >= 10)
             {
                 Level_1 = false;
                 Level_2 = true;
@@ -550,13 +562,14 @@ namespace Medeval_Fight
                 Level_4 = false;
                 Level_5 = true;
             }
-            if (Enemy_Kill_Total == 100)
+            if (Enemy_Kill_Total >= 100)
             {
                 Level_1 = false;
                 Level_2 = false;
                 Level_3 = false;
                 Level_4 = false;
                 Level_5 = false;
+                Game_State = GameState.Exit_Screen;
             }
             //enemy attack code
             if (Level_2 == true)
@@ -569,18 +582,54 @@ namespace Medeval_Fight
                         Enemy_Damage_1 = true;
                         Enemy_Damage_2 = false;
                         Enemy_Damage_3 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health--;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health--;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health--;
+                        }
                     }
                     if (Enemy_Random_Generator == 2)
                     {
                         Enemy_Damage_1 = false;
                         Enemy_Damage_2 = true;
                         Enemy_Damage_3 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 2;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 2;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 2;
+                        }
                     }
                     if (Enemy_Random_Generator == 3)
                     {
-                        Enemy_Damage_1 = false ;
+                        Enemy_Damage_1 = false;
                         Enemy_Damage_2 = false;
                         Enemy_Damage_3 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 3;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 3;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 3;
+                        }
                     }
                     Enemy_Damage_Counter = 0;
                 }
@@ -597,6 +646,18 @@ namespace Medeval_Fight
                         Enemy_Damage_3 = false;
                         Enemy_Damage_4 = false;
                         Enemy_Damage_5 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health--;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health--;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health--;
+                        }
                     }
                     if (Enemy_Random_Generator == 2)
                     {
@@ -605,6 +666,18 @@ namespace Medeval_Fight
                         Enemy_Damage_3 = false;
                         Enemy_Damage_4 = false;
                         Enemy_Damage_5 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 2;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 2;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 2;
+                        }
                     }
                     if (Enemy_Random_Generator == 3)
                     {
@@ -613,6 +686,18 @@ namespace Medeval_Fight
                         Enemy_Damage_3 = true;
                         Enemy_Damage_4 = false;
                         Enemy_Damage_5 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 3;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 3;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 3;
+                        }
                     }
                     if (Enemy_Random_Generator == 4)
                     {
@@ -621,6 +706,18 @@ namespace Medeval_Fight
                         Enemy_Damage_3 = false;
                         Enemy_Damage_4 = true;
                         Enemy_Damage_5 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 4;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 4;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 4;
+                        }
                     }
                     if (Enemy_Random_Generator == 5)
                     {
@@ -629,6 +726,18 @@ namespace Medeval_Fight
                         Enemy_Damage_3 = false;
                         Enemy_Damage_4 = false;
                         Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 5;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 5;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 5;
+                        }
                     }
                     Enemy_Damage_Counter = 0;
                 }
@@ -648,6 +757,19 @@ namespace Medeval_Fight
                         Enemy_Damage_6 = false;
                         Enemy_Damage_7 = false;
                         Enemy_Damage_8 = false;
+                        Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health --;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health --;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health --;
+                        }
                     }
                     if (Enemy_Random_Generator == 2)
                     {
@@ -659,6 +781,19 @@ namespace Medeval_Fight
                         Enemy_Damage_6 = false;
                         Enemy_Damage_7 = false;
                         Enemy_Damage_8 = false;
+                        Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 2;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 2;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 2;
+                        }
                     }
                     if (Enemy_Random_Generator == 3)
                     {
@@ -670,6 +805,19 @@ namespace Medeval_Fight
                         Enemy_Damage_6 = false;
                         Enemy_Damage_7 = false;
                         Enemy_Damage_8 = false;
+                        Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 3;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 3;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 3;
+                        }
                     }
                     if (Enemy_Random_Generator == 4)
                     {
@@ -681,6 +829,19 @@ namespace Medeval_Fight
                         Enemy_Damage_6 = false;
                         Enemy_Damage_7 = false;
                         Enemy_Damage_8 = false;
+                        Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 4;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 4;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 4;
+                        }
                     }
                     if (Enemy_Random_Generator == 5)
                     {
@@ -692,6 +853,19 @@ namespace Medeval_Fight
                         Enemy_Damage_6 = false;
                         Enemy_Damage_7 = false;
                         Enemy_Damage_8 = false;
+                        Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 5;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 5;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 5;
+                        }
                     }
                     if (Enemy_Random_Generator == 6)
                     {
@@ -703,6 +877,19 @@ namespace Medeval_Fight
                         Enemy_Damage_6 = true;
                         Enemy_Damage_7 = false;
                         Enemy_Damage_8 = false;
+                        Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 6;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 6;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 6;
+                        }
                     }
                     if (Enemy_Random_Generator == 7)
                     {
@@ -714,6 +901,19 @@ namespace Medeval_Fight
                         Enemy_Damage_6 = false;
                         Enemy_Damage_7 = true;
                         Enemy_Damage_8 = false;
+                        Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 7;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 7;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 7;
+                        }
                     }
                     if (Enemy_Random_Generator == 8)
                     {
@@ -725,6 +925,19 @@ namespace Medeval_Fight
                         Enemy_Damage_6 = false;
                         Enemy_Damage_7 = false;
                         Enemy_Damage_8 = true;
+                        Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 8;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 8;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 8;
+                        }
                     }
                     Enemy_Damage_Counter = 0;
                 }
@@ -746,6 +959,19 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = false;
                         Enemy_Damage_9 = false;
                         Enemy_Damage_10 = false;
+                        Enemy_Damage_5 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health --;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health --;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health --;
+                        }
                     }
                     if (Enemy_Random_Generator == 2)
                     {
@@ -759,6 +985,18 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = false;
                         Enemy_Damage_9 = false;
                         Enemy_Damage_10 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 2;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -=2;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -=2;
+                        }
                     }
                     if (Enemy_Random_Generator == 3)
                     {
@@ -772,6 +1010,18 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = false;
                         Enemy_Damage_9 = false;
                         Enemy_Damage_10 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 3;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 3;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 3;
+                        }
                     }
                     if (Enemy_Random_Generator == 4)
                     {
@@ -785,6 +1035,18 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = false;
                         Enemy_Damage_9 = false;
                         Enemy_Damage_10 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 4;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 4;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 4;
+                        }
                     }
                     if (Enemy_Random_Generator == 5)
                     {
@@ -798,6 +1060,18 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = false;
                         Enemy_Damage_9 = false;
                         Enemy_Damage_10 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 5;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 5;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 5;
+                        }
                     }
                     if (Enemy_Random_Generator == 6)
                     {
@@ -811,6 +1085,18 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = false;
                         Enemy_Damage_9 = false;
                         Enemy_Damage_10 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 6;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 6;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 6;
+                        }
                     }
                     if (Enemy_Random_Generator == 7)
                     {
@@ -824,6 +1110,18 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = false;
                         Enemy_Damage_9 = false;
                         Enemy_Damage_10 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 7;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 7;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 7;
+                        }
                     }
                     if (Enemy_Random_Generator == 8)
                     {
@@ -837,6 +1135,18 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = true;
                         Enemy_Damage_9 = false;
                         Enemy_Damage_10 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 8;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 8;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 8;
+                        }
                     }
                     if (Enemy_Random_Generator == 9)
                     {
@@ -850,6 +1160,18 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = false;
                         Enemy_Damage_9 = true;
                         Enemy_Damage_10 = false;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 9;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 9;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 9;
+                        }
                     }
                     if (Enemy_Random_Generator == 10)
                     {
@@ -863,10 +1185,23 @@ namespace Medeval_Fight
                         Enemy_Damage_8 = false;
                         Enemy_Damage_9 = false;
                         Enemy_Damage_10 = true;
+                        if (Sage_Settings == true)
+                        {
+                            Sage_Health -= 10;
+                        }
+                        if (Lance_Settings == true)
+                        {
+                            Lance_Health -= 10;
+                        }
+                        if (Axe_Settings == true)
+                        {
+                            Axe_Health -= 10;
+                        }
                     }
                     Enemy_Damage_Counter = 0;
                 }
             }
+            Attack_Time_Counter++;
             Enemy_Damage_Counter++;
             Last_Click_Mouse = Mouse_State;
             Push_Keyboard_State = Keyboard_State;
@@ -1029,6 +1364,39 @@ namespace Medeval_Fight
                 if (Level_3 == true)
                 {
                     spriteBatch.DrawString(Main_Font, Levels[2], new Vector2(430, 0), Color.Brown);
+                    Enemy_List.Add(Enemy_Rec_1);
+                    Enemy_List.Add(Enemy_Rec_2);
+                    Enemy_List.Add(Enemy_Rec_3);
+                    Enemy_List.Add(Enemy_Rec_4);
+                    Enemy_List.Add(Enemy_Rec_5);
+                    Enemy_List.Add(Enemy_Rec_6);
+                    Enemy_List.Add(Enemy_Rec_7);
+                    Enemy_List.Add(Enemy_Rec_8);
+                    Enemy_List.Add(Enemy_Rec_9);
+                    Enemy_List.Add(Enemy_Rec_10);
+                    Enemy_List_2.Add(Enemy_Rec_12);
+                    Enemy_List_2.Add(Enemy_Rec_13);
+                    Enemy_List_2.Add(Enemy_Rec_14);
+                    Enemy_List_2.Add(Enemy_Rec_15);
+                    Enemy_List_2.Add(Enemy_Rec_16);
+                    Enemy_List_2.Add(Enemy_Rec_17);
+                    Enemy_List_2.Add(Enemy_Rec_18);
+                    Enemy_List_2.Add(Enemy_Rec_19);
+                    Enemy_List_2.Add(Enemy_Rec_20);
+                    if (Enemy_List.Count >= 1)
+                    {
+                        for (int i = 0; i < Enemy_List.Count; i++)
+                        {
+                            spriteBatch.Draw(Enemy_Tex_1, Enemy_List[i], Color.White);
+                        }
+                    }
+                    if (Enemy_List_2.Count >= 1)
+                    {
+                        for (int i = 0; i < Enemy_List_2.Count; i++)
+                        {
+                            spriteBatch.Draw(Enemy_Tex_2, Enemy_List_2[i], Color.White);
+                        }
+                    }
                     if (Enemy_List_3.Count >= 1)
                     {
                         for (int i = 0; i < Enemy_List_3.Count; i++)
@@ -1036,10 +1404,59 @@ namespace Medeval_Fight
                             spriteBatch.Draw(Enemy_Tex_3, Enemy_List_3[i], Color.White);
                         }
                     }
-                    Game_State = GameState.Exit_Screen;
                 }
                 if (Level_4 == true)
                 {
+                    Enemy_List.Add(Enemy_Rec_1);
+                    Enemy_List.Add(Enemy_Rec_2);
+                    Enemy_List.Add(Enemy_Rec_3);
+                    Enemy_List.Add(Enemy_Rec_4);
+                    Enemy_List.Add(Enemy_Rec_5);
+                    Enemy_List.Add(Enemy_Rec_6);
+                    Enemy_List.Add(Enemy_Rec_7);
+                    Enemy_List.Add(Enemy_Rec_8);
+                    Enemy_List.Add(Enemy_Rec_9);
+                    Enemy_List.Add(Enemy_Rec_10);
+                    Enemy_List_2.Add(Enemy_Rec_12);
+                    Enemy_List_2.Add(Enemy_Rec_13);
+                    Enemy_List_2.Add(Enemy_Rec_14);
+                    Enemy_List_2.Add(Enemy_Rec_15);
+                    Enemy_List_2.Add(Enemy_Rec_16);
+                    Enemy_List_2.Add(Enemy_Rec_17);
+                    Enemy_List_2.Add(Enemy_Rec_18);
+                    Enemy_List_2.Add(Enemy_Rec_19);
+                    Enemy_List_2.Add(Enemy_Rec_20);
+                    Enemy_List_3.Add(Enemy_Rec_21);
+                    Enemy_List_3.Add(Enemy_Rec_22);
+                    Enemy_List_3.Add(Enemy_Rec_23);
+                    Enemy_List_3.Add(Enemy_Rec_24);
+                    Enemy_List_3.Add(Enemy_Rec_25);
+                    Enemy_List_3.Add(Enemy_Rec_26);
+                    Enemy_List_3.Add(Enemy_Rec_27);
+                    Enemy_List_3.Add(Enemy_Rec_28);
+                    Enemy_List_3.Add(Enemy_Rec_29);
+                    Enemy_List_3.Add(Enemy_Rec_30);
+                    if (Enemy_List.Count >= 1)
+                    {
+                        for (int i = 0; i < Enemy_List.Count; i++)
+                        {
+                            spriteBatch.Draw(Enemy_Tex_1, Enemy_List[i], Color.White);
+                        }
+                    }
+                    if (Enemy_List_2.Count >= 1)
+                    {
+                        for (int i = 0; i < Enemy_List_2.Count; i++)
+                        {
+                            spriteBatch.Draw(Enemy_Tex_2, Enemy_List_2[i], Color.White);
+                        }
+                    }
+                    if (Enemy_List_3.Count >= 1)
+                    {
+                        for (int i = 0; i < Enemy_List_3.Count; i++)
+                        {
+                            spriteBatch.Draw(Enemy_Tex_3, Enemy_List_3[i], Color.White);
+                        }
+                    }
                     spriteBatch.DrawString(Main_Font, Levels[3], new Vector2(430, 0), Color.Brown);
                 }
                 if (Level_5 == true)
@@ -1048,7 +1465,7 @@ namespace Medeval_Fight
                 }
                 if (Sage_Settings == true)
                 {
-                    if (Sage_Health < 50 && Sage_Health > 40)
+                    if (Sage_Health <= 50 && Sage_Health > 40)
                     {
                         spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
                         spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
@@ -1080,57 +1497,113 @@ namespace Medeval_Fight
                     }
                     if (Sage_Health == 0)
                     {
+                        Died = true;
+                        Game_State = GameState.Exit_Screen;
+                    }
+                }
+                if (Lance_Settings == true)
+                {
+                    if (Lance_Health <= 65 && Lance_Health > 52)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_4_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_5_Rec, Color.White);
+                    }
+                    if (Lance_Health < 52 && Lance_Health > 40)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_4_Rec, Color.White);
+                    }
+                    if (Lance_Health < 40 && Lance_Health > 38)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
+                    }
+                    if (Lance_Health < 38 && Lance_Health > 27)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                    }
+                    if (Lance_Health < 27 && Lance_Health > 0)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                    }
+                    if (Sage_Health == 0)
+                    {
+                        Died = true;
                         Game_State = GameState.Exit_Screen;
                     }
                 }
                 if (Enemy_Damage_1 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, "-1", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                    spriteBatch.DrawString(Main_Font, "-1", new Vector2(Player_Current_Character_Rec.X - 20, Player_Current_Character_Rec.Y - 20), Color.Red);
                 }
                 if (Enemy_Damage_2 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, "-2", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                    spriteBatch.DrawString(Main_Font, "-2", new Vector2(Player_Current_Character_Rec.X - 20, Player_Current_Character_Rec.Y - 20), Color.Red);
                 }
                 if (Enemy_Damage_3 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, "-3", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                    spriteBatch.DrawString(Main_Font, "-3", new Vector2(Player_Current_Character_Rec.X - 20, Player_Current_Character_Rec.Y - 20), Color.Red);
                 }
                 if (Enemy_Damage_4 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, "-4", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                    spriteBatch.DrawString(Main_Font, "-4", new Vector2(Player_Current_Character_Rec.X - 20, Player_Current_Character_Rec.Y - 20), Color.Red);
                 }
                 if (Enemy_Damage_5 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, "-5", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                    spriteBatch.DrawString(Main_Font, "-5", new Vector2(Player_Current_Character_Rec.X - 20, Player_Current_Character_Rec.Y - 20), Color.Red);
                 }
                 if (Enemy_Damage_6 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, "-6", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                    spriteBatch.DrawString(Main_Font, "-6", new Vector2(Player_Current_Character_Rec.X - 20, Player_Current_Character_Rec.Y - 20), Color.Red);
                 }
                 if (Enemy_Damage_7 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, "-7", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                    spriteBatch.DrawString(Main_Font, "-7", new Vector2(Player_Current_Character_Rec.X - 20, Player_Current_Character_Rec.Y - 20), Color.Red);
                 }
                 if (Enemy_Damage_8 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, "-8", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                    spriteBatch.DrawString(Main_Font, "-8", new Vector2(Player_Current_Character_Rec.X - 20, Player_Current_Character_Rec.Y - 20), Color.Red);
                 }
                 if (Enemy_Damage_9 == true)
                 {
-                    spriteBatch.DrawString(Main_Font, "-9", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
+                    spriteBatch.DrawString(Main_Font, "-9", new Vector2(Player_Current_Character_Rec.X - 20, Player_Current_Character_Rec.Y - 20), Color.Red);
                 }
                 if (Enemy_Damage_10 == true)
                 {
                     spriteBatch.DrawString(Main_Font, "-10", new Vector2(Player_Current_Character_Rec.X - 10, Player_Current_Character_Rec.Y - 10), Color.Red);
                 }
+                if (Sage_Attack == true)
+                {
+                    Magic_Attack_Rec = new Rectangle(Mouse_State.X, Mouse_State.Y, 20, 20);
+                    spriteBatch.Draw(Magic_Attack_Tex, Magic_Attack_Rec, Color.White);
+                }
                 spriteBatch.DrawString(Main_Font, Enemy_Kill_Total.ToString(), new Vector2 (200,200), Color.Red);
+                spriteBatch.DrawString(Main_Font, Sage_Health.ToString(), new Vector2(200, 250), Color.Red);
             }
         }
         public void Exit_Screen_Draw_State()
         {
-            spriteBatch.Draw(Menu_Screen_Tex, Menu_Screen_Rec, Color.White);
-            spriteBatch.Draw(Exit_Button_Tex, Exit_Button_Rec, Color.Brown);
-            spriteBatch.DrawString(Main_Font, "You killed " + Enemy_Kill_Total.ToString() + " Enemies.", new Vector2(110, 300), Color.Brown);
+            if (Died == false)
+            {
+                spriteBatch.Draw(Menu_Screen_Tex, Menu_Screen_Rec, Color.White);
+                spriteBatch.Draw(Exit_Button_Tex, Exit_Button_Rec, Color.Brown);
+                spriteBatch.DrawString(Main_Font, "You killed " + Enemy_Kill_Total.ToString() + " Enemies.", new Vector2(110, 300), Color.Brown);
+            }
+            if (Died == true)
+            {
+                spriteBatch.Draw(Menu_Screen_Tex, Menu_Screen_Rec, Color.White);
+                spriteBatch.Draw(Exit_Button_Tex, Exit_Button_Rec, Color.Brown);
+                spriteBatch.DrawString(Main_Font, "You killed " + Enemy_Kill_Total.ToString() + " Enemies.", new Vector2(110, 300), Color.Brown);
+                spriteBatch.DrawString(Main_Font, "You Died! :'( ", new Vector2(110, 320), Color.Brown);
+
+            }
         }
     }
 }
