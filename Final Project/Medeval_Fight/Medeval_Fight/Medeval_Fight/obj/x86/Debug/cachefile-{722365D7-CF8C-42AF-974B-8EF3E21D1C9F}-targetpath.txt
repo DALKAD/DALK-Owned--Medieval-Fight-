@@ -20,3 +20,4 @@ Content\Player_Axe_Man_Right.xnb
 Content\spider.xnb
 Content\heart.xnb
 Content\Magic_Attack.xnb
+Content\Axe_Attack.xnb

@@ -24,17 +24,17 @@ namespace Medeval_Fight
         //Rectangles 
         Rectangle Menu_Screen_Rec,Exit_Button_Rec, Start_Button_Rec, Info_Button_Rec, House_2_Rec, Grass_Tile_Rec, House_Tile_Rec, Road_Tile_Rec , Player_Current_Character_Rec, Player_Sage_Pick_Rec, Player_Lance_Pick_Rec, Player_Axe_Man_Rec
             , Enemy_Rec_1, Enemy_Rec_2, Enemy_Rec_3, Enemy_Rec_4, Enemy_Rec_5, Enemy_Rec_6, Enemy_Rec_7, Enemy_Rec_8, Enemy_Rec_9, Enemy_Rec_10, Enemy_Rec_11, Enemy_Rec_12, Enemy_Rec_13, Enemy_Rec_14, Enemy_Rec_15, Enemy_Rec_16, Enemy_Rec_17, Enemy_Rec_18, Enemy_Rec_19, Enemy_Rec_20
-            , Enemy_Rec_21, Enemy_Rec_22, Enemy_Rec_23, Enemy_Rec_24, Enemy_Rec_25, Enemy_Rec_26, Enemy_Rec_27, Enemy_Rec_28, Enemy_Rec_29, Enemy_Rec_30, Health_1_Rec, Health_2_Rec, Health_3_Rec, Health_4_Rec, Health_5_Rec, Magic_Attack_Rec;
+            , Enemy_Rec_21, Enemy_Rec_22, Enemy_Rec_23, Enemy_Rec_24, Enemy_Rec_25, Enemy_Rec_26, Enemy_Rec_27, Enemy_Rec_28, Enemy_Rec_29, Enemy_Rec_30, Health_1_Rec, Health_2_Rec, Health_3_Rec, Health_4_Rec, Health_5_Rec, Magic_Attack_Rec, Lance_Attack_Rec, Axe_Attack_Rec;
         //Textures
         Texture2D Menu_Screen_Tex, Exit_Button_Tex, Start_Button_Tex, Info_Button_Tex, House_2_Tex, Grass_Tile_Tex, House_Tile_Tex, Road_Tile_Tex, Enemy_Tex_1, Enemy_Tex_2, Enemy_Tex_3, Player_Character_Current_Tex,
             Player_Character_Sage_Front_Tex, Player_Character_Sage_Back_Tex, Player_Character_Sage_Right_Tex, Player_Character_Sage_Left_Tex, Player_Character_Lance_Front_Right_Tex, Player_Character_Lance_Back_Left_Tex, Player_Axe_Man_Front_Right_Tex
-            ,Player_Axe_Man_Back_Left_Tex, Health_Tex, Magic_Attack_Tex;
+            ,Player_Axe_Man_Back_Left_Tex, Health_Tex, Magic_Attack_Tex, Lance_Attack_Tex, Axe_Attack_Tex;
         //Integers cuhhhh
         int Splash_Screen_Timer = 0, BG_Grid_Col, BG_Grid_Row,Total_Timer_Seconds, Total_Timer_Minutes = 0, Tick_Counter, Enemy_Count_1, Enemy_Count_2, Enemy_Count_3, Enemy_Kill_Total, Enemy_List_Number, Enemy_Random_Generator
-            ,Enemy_Damage_Counter, Attack_Time_Counter ,Sage_Health = 50, Lance_Health = 65, Axe_Health;
+            ,Enemy_Damage_Counter, Attack_Time_Counter ,Sage_Health = 50, Lance_Health = 65, Axe_Health = 70;
         //booleans
-        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Sage_Attack, Lance_Settings, Axe_Settings, Enemy_Damage_1,
-            Enemy_Damage_2, Enemy_Damage_3, Enemy_Damage_4, Enemy_Damage_5, Enemy_Damage_6, Enemy_Damage_7, Enemy_Damage_8, Enemy_Damage_9, Enemy_Damage_10, Died;
+        bool Splash_Load_1, Splash_Load_2, Splash_Load_3, Splash_Load_4, Splash_Load_5, Level_1 = true, Level_2, Level_3, Level_4, Level_5, Controls_Menu, Character_Pick, Sage_Settings, Sage_Attack, Lance_Settings, Axe_Settings, Axe_Attack
+            ,Enemy_Damage_1, Enemy_Damage_2, Enemy_Damage_3, Enemy_Damage_4, Enemy_Damage_5, Enemy_Damage_6, Enemy_Damage_7, Enemy_Damage_8, Enemy_Damage_9, Enemy_Damage_10, Died;
         //Grids 
         Rectangle[,] BG_Grid = new Rectangle[9, 9];
         //Dem random number generators
@@ -129,6 +129,7 @@ namespace Medeval_Fight
             Enemy_Tex_2 = Content.Load<Texture2D>("zombie");
             Enemy_Tex_3 = Content.Load<Texture2D>("spider");
             Magic_Attack_Tex = Content.Load <Texture2D>("Magic_Attack");
+            Axe_Attack_Tex = Content.Load<Texture2D>("Axe_Attack");
             Player_Character_Current_Tex = Content.Load<Texture2D>("Player_Sage_Front");
             Player_Character_Sage_Back_Tex = Content.Load<Texture2D>("Player_Sage_Back");
             Player_Character_Sage_Front_Tex = Content.Load<Texture2D>("Player_Sage_Front");
@@ -406,7 +407,7 @@ namespace Medeval_Fight
                         {
                             Enemy_Count_1++;
                             Sage_Attack = true;
-                            if (Enemy_Count_1 >= 5)
+                            if (Enemy_Count_1 >= 4)
                             {
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
@@ -427,7 +428,7 @@ namespace Medeval_Fight
                         {
                             Enemy_Count_2++;
                             Sage_Attack = true;
-                            if (Enemy_Count_2 >= 5)
+                            if (Enemy_Count_2 >= 4)
                             {
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
@@ -448,7 +449,7 @@ namespace Medeval_Fight
                         {
                             Enemy_Count_3++;
                             Sage_Attack = true;
-                            if (Enemy_Count_3 >= 5)
+                            if (Enemy_Count_3 >= 4)
                             {
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
@@ -462,15 +463,15 @@ namespace Medeval_Fight
             //axe settings
             for (int i = 0; i < Enemy_List.Count; i++)
             {
-                if (Lance_Settings == true)
+                if (Axe_Settings == true)
                 {
                     if (Enemy_List[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
                         if (Enemy_List[i].X - Player_Current_Character_Rec.X < 75 && Enemy_List[i].Y - Player_Current_Character_Rec.Y < 75)
                         {
                             Enemy_Count_1++;
-                            Sage_Attack = true;
-                            if (Enemy_Count_1 >= 5)
+                            Axe_Attack = true;
+                            if (Enemy_Count_1 >= 2)
                             {
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
@@ -483,15 +484,15 @@ namespace Medeval_Fight
             }
             for (int i = 0; i < Enemy_List_2.Count; i++)
             {
-                if (Lance_Settings == true)
+                if (Axe_Settings == true)
                 {
                     if (Enemy_List_2[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
                         if (Enemy_List_2[i].X - Player_Current_Character_Rec.X < 75 && Enemy_List_2[i].Y - Player_Current_Character_Rec.Y < 75)
                         {
                             Enemy_Count_2++;
-                            Sage_Attack = true;
-                            if (Enemy_Count_2 >= 5)
+                            Axe_Attack = true;
+                            if (Enemy_Count_2 >= 2)
                             {
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
@@ -504,15 +505,15 @@ namespace Medeval_Fight
             }
             for (int i = 0; i < Enemy_List_3.Count; i++)
             {
-                if (Lance_Settings == true)
+                if (Axe_Settings == true)
                 {
                     if (Enemy_List_3[i].Contains(Mouse_State.X, Mouse_State.Y) && Mouse_State.LeftButton == ButtonState.Pressed && Last_Click_Mouse.LeftButton == ButtonState.Released)
                     {
                         if (Enemy_List_3[i].X - Player_Current_Character_Rec.X < 75 && Enemy_List_3[i].Y - Player_Current_Character_Rec.Y < 75)
                         {
                             Enemy_Count_3++;
-                            Sage_Attack = true;
-                            if (Enemy_Count_3 >= 5)
+                            Axe_Attack = true;
+                            if (Enemy_Count_3 >= 2)
                             {
                                 Enemy_List_Number = i;
                                 Enemy_Kill_Total++;
@@ -1533,7 +1534,45 @@ namespace Medeval_Fight
                     {
                         spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
                     }
-                    if (Sage_Health == 0)
+                    if (Lance_Health == 0)
+                    {
+                        Died = true;
+                        Game_State = GameState.Exit_Screen;
+                    }
+                }
+                if (Axe_Settings == true)
+                {
+                    if (Axe_Health <= 70 && Axe_Health > 65)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_4_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_5_Rec, Color.White);
+                    }
+                    if (Axe_Health < 65 && Axe_Health > 45)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_4_Rec, Color.White);
+                    }
+                    if (Axe_Health < 45 && Axe_Health > 35)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_3_Rec, Color.White);
+                    }
+                    if (Axe_Health < 35 && Axe_Health > 25)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                        spriteBatch.Draw(Health_Tex, Health_2_Rec, Color.White);
+                    }
+                    if (Axe_Health < 25 && Axe_Health > 0)
+                    {
+                        spriteBatch.Draw(Health_Tex, Health_1_Rec, Color.White);
+                    }
+                    if (Axe_Health == 0)
                     {
                         Died = true;
                         Game_State = GameState.Exit_Screen;
@@ -1583,6 +1622,11 @@ namespace Medeval_Fight
                 {
                     Magic_Attack_Rec = new Rectangle(Mouse_State.X, Mouse_State.Y, 20, 20);
                     spriteBatch.Draw(Magic_Attack_Tex, Magic_Attack_Rec, Color.White);
+                }
+                if (Axe_Attack == true)
+                {
+                    Axe_Attack_Rec = new Rectangle(Mouse_State.X, Mouse_State.Y, 20, 20);
+                    spriteBatch.Draw(Axe_Attack_Tex, Axe_Attack_Rec, Color.White);
                 }
                 spriteBatch.DrawString(Main_Font, Enemy_Kill_Total.ToString(), new Vector2 (200,200), Color.Red);
                 spriteBatch.DrawString(Main_Font, Sage_Health.ToString(), new Vector2(200, 250), Color.Red);

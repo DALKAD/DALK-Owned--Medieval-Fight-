@@ -93,17 +93,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Medeval_Fight.exe" size="31232">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Medeval_Fight.exe" size="34304">
       <assemblyIdentity name="Medeval_Fight" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>XAVMIMybKPU/S7eScGEF0fOrC+g=</dsig:DigestValue>
+        <dsig:DigestValue>NIz+zyQ2NUTZu/v5bUCSndW3e4E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="Content\Axe_Attack.xnb" size="6587">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>sYLcDNgBYs6ruqc1P1ZSzpsgY4g=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Enemy.xnb" size="6587">
     <hash>
       <dsig:Transforms>
