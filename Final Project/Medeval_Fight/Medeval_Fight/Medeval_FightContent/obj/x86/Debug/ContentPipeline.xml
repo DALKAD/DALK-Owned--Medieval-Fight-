@@ -208,6 +208,52 @@
       <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Axe_Attack.xnb</Output>
       <Time>2014-01-12T20:41:20.6527212-05:00</Time>
     </Item>
+    <Item>
+      <Source>Lance_Attack.png</Source>
+      <Name>Lance_Attack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Lance_Attack.xnb</Output>
+      <Time>2014-01-13T12:21:26.4703111-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Level_Up.wav</Source>
+      <Name>Level_Up</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Level_Up.xnb</Output>
+      <Time>2014-01-13T16:53:30.4983607-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Mage_Attack_Sound.wav</Source>
+      <Name>Mage_Attack_Sound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Mage_Attack_Sound.xnb</Output>
+      <Time>2014-01-13T16:53:30.5140382-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Start_Up_Song.mp3</Source>
+      <Name>Start_Up_Song</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.xnb</Output>
+      <Extra>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.wma</Extra>
+      <Time>2014-01-13T16:56:30.1991874-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sword_Lance_Attack_Sound.wav</Source>
+      <Name>Sword_Lance_Attack_Sound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Sword_Lance_Attack_Sound.xnb</Output>
+      <Time>2014-01-13T17:16:10.4913238-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

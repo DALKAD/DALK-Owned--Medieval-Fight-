@@ -39,7 +39,6 @@ F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bi
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Medeval_Fight.application
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medeval_Fight.exe.manifest
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medeval_Fight.application
-F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medeval_Fight.csprojResolveAssemblyReference.cache
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\zombie.xnb
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Back_Left.xnb
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Front_Right.xnb
@@ -49,3 +48,10 @@ F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bi
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\heart.xnb
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Magic_Attack.xnb
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Axe_Attack.xnb
+F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Lance_Attack.xnb
+F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Level_Up.xnb
+F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Mage_Attack_Sound.xnb
+F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Sword_Lance_Attack_Sound.xnb
+F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.xnb
+F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.wma
+F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medeval_Fight.csprojResolveAssemblyReference.cache
