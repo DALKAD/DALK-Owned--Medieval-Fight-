@@ -236,6 +236,15 @@
       <Time>2014-01-13T16:53:30.5140382-05:00</Time>
     </Item>
     <Item>
+      <Source>Sword_Lance_Attack_Sound.wav</Source>
+      <Name>Sword_Lance_Attack_Sound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Sword_Lance_Attack_Sound.xnb</Output>
+      <Time>2014-01-13T17:16:10.4913238-05:00</Time>
+    </Item>
+    <Item>
       <Source>Start_Up_Song.mp3</Source>
       <Name>Start_Up_Song</Name>
       <Importer>Mp3Importer</Importer>
@@ -246,13 +255,13 @@
       <Time>2014-01-13T16:56:30.1991874-05:00</Time>
     </Item>
     <Item>
-      <Source>Sword_Lance_Attack_Sound.wav</Source>
-      <Name>Sword_Lance_Attack_Sound</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
+      <Source>SpriteFont2.spritefont</Source>
+      <Name>SpriteFont2</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Sword_Lance_Attack_Sound.xnb</Output>
-      <Time>2014-01-13T17:16:10.4913238-05:00</Time>
+      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\SpriteFont2.xnb</Output>
+      <Time>2014-01-14T12:28:56.2893121-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -291,8 +300,8 @@
         <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-10-26T20:58:10.9036769-04:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-08-26T16:12:28.988172-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

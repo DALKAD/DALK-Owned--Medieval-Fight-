@@ -1,3 +1,16 @@
+//Program built under DALK Application Development
+//Orginally Developed by David Johnson
+//Medieval Fight
+//Version Alpha 1.0.4
+//Ideas:
+//Better enemy generation 
+//New images
+//Better font
+//Better Village health system
+//redo map layout
+//animations
+//better storyline
+//multiplayer support?
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +21,6 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-
 namespace Medeval_Fight
 {
     public class Game1 : Microsoft.Xna.Framework.Game
@@ -21,6 +33,7 @@ namespace Medeval_Fight
         MouseState Last_Click_Mouse;
         KeyboardState Push_Keyboard_State;
         SpriteFont Main_Font;
+        SpriteFont Small_Font;
         //Rectangles 
         Rectangle Menu_Screen_Rec,Exit_Button_Rec, Start_Button_Rec, Info_Button_Rec, House_2_Rec, Grass_Tile_Rec, House_Tile_Rec, Road_Tile_Rec , Player_Current_Character_Rec, Player_Sage_Pick_Rec, Player_Lance_Pick_Rec, Player_Axe_Man_Rec
             , Enemy_Rec_1, Enemy_Rec_2, Enemy_Rec_3, Enemy_Rec_4, Enemy_Rec_5, Enemy_Rec_6, Enemy_Rec_7, Enemy_Rec_8, Enemy_Rec_9, Enemy_Rec_10, Enemy_Rec_11, Enemy_Rec_12, Enemy_Rec_13, Enemy_Rec_14, Enemy_Rec_15, Enemy_Rec_16, Enemy_Rec_17, Enemy_Rec_18, Enemy_Rec_19, Enemy_Rec_20
@@ -122,6 +135,7 @@ namespace Medeval_Fight
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Main_Font = Content.Load<SpriteFont>("SpriteFont1");
+            Small_Font = Content.Load<SpriteFont>("SpriteFont2");
             Menu_Screen_Tex = Content.Load<Texture2D>("Menu");
             Exit_Button_Tex = Content.Load<Texture2D>("exit");
             Start_Button_Tex = Content.Load<Texture2D>("start");
@@ -1383,10 +1397,14 @@ namespace Medeval_Fight
             spriteBatch.Draw(Info_Button_Tex, Info_Button_Rec, Color.White);
             if (Controls_Menu == true)
             {
-                spriteBatch.DrawString(Main_Font, "WASD to move", new Vector2 (100,300) ,Color.Brown);
-                spriteBatch.DrawString(Main_Font, "Left Click to attack enemy.", new Vector2(100, 350), Color.Brown);    
+                spriteBatch.DrawString(Main_Font, "WASD to move", new Vector2 (200,250) ,Color.Brown);
+                spriteBatch.DrawString(Main_Font, "Left Click to attack enemy.", new Vector2(100, 300), Color.Brown);
+                spriteBatch.DrawString(Small_Font, "To win the game you must click on the enemies as fast as possible.", new Vector2(10, 350), Color.Brown);
+                spriteBatch.DrawString(Small_Font, "Kill the enemies in the village first, then kill the others.", new Vector2(25, 375), Color.Brown);
+                spriteBatch.DrawString(Small_Font, "If you get to the end of level 5 you win.", new Vector2(100, 400), Color.Brown);
+                spriteBatch.DrawString(Small_Font, "Version Alpha 1.0.4", new Vector2(200, 420), Color.Brown);
             }
-            spriteBatch.DrawString(Main_Font, "Medieval Fight!", new Vector2(160, 250), Color.Brown);
+            spriteBatch.DrawString(Main_Font, "Medieval Fight!", new Vector2(180, 200), Color.Brown);
         }
         public void Game_Play_Draw_State()
         {

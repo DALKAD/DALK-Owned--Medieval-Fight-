@@ -24,6 +24,7 @@ Content\Axe_Attack.xnb
 Content\Lance_Attack.xnb
 Content\Level_Up.xnb
 Content\Mage_Attack_Sound.xnb
+Content\Sword_Lance_Attack_Sound.xnb
 Content\Start_Up_Song.xnb
 Content\Start_Up_Song.wma
-Content\Sword_Lance_Attack_Sound.xnb
+Content\SpriteFont2.xnb
