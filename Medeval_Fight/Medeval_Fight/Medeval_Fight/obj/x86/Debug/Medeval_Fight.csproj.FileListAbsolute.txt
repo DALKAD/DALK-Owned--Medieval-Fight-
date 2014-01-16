@@ -77,3 +77,43 @@ E:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\ob
 E:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medieval Fight.pdb
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\ResolveAssemblyReference.cache
 F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\SpriteFont2.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\SpriteFont2.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Menu.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\exit.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\info.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\start.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\grass.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\house.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\road.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Enemy.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Back.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Front.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Left.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Right.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\house2.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\zombie.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Back_Left.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Front_Right.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Axe_Man_Front.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Axe_Man_Right.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\spider.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\heart.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Magic_Attack.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Axe_Attack.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Lance_Attack.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Level_Up.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Mage_Attack_Sound.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Sword_Lance_Attack_Sound.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.xnb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.wma
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Medieval Fight.exe.manifest
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Medieval Fight.application
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Medieval Fight.exe
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Medieval Fight.pdb
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medeval_Fight.csprojResolveAssemblyReference.cache
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medieval Fight.exe.manifest
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medieval Fight.application
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medieval Fight.exe
+C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\obj\x86\Debug\Medieval Fight.pdb

@@ -1,4 +1,5 @@
 Content\SpriteFont1.xnb
+Content\SpriteFont2.xnb
 Content\Menu.xnb
 Content\exit.xnb
 Content\info.xnb
@@ -26,5 +27,4 @@ Content\Level_Up.xnb
 Content\Mage_Attack_Sound.xnb
 Content\Sword_Lance_Attack_Sound.xnb
 Content\Start_Up_Song.xnb
-Content\SpriteFont2.xnb
 Content\Start_Up_Song.wma

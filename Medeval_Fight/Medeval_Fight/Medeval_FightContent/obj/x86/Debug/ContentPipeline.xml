@@ -7,252 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2013-12-17T11:59:47.2078011-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu.jpg</Source>
-      <Name>Menu</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Menu.xnb</Output>
-      <Time>2013-12-17T12:51:59.1130408-05:00</Time>
-    </Item>
-    <Item>
-      <Source>exit.png</Source>
-      <Name>exit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\exit.xnb</Output>
-      <Time>2013-12-18T12:00:21.7698094-05:00</Time>
-    </Item>
-    <Item>
-      <Source>info.png</Source>
-      <Name>info</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\info.xnb</Output>
-      <Time>2013-12-18T12:00:21.7868111-05:00</Time>
-    </Item>
-    <Item>
-      <Source>start.png</Source>
-      <Name>start</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\start.xnb</Output>
-      <Time>2013-12-18T12:00:21.8038128-05:00</Time>
-    </Item>
-    <Item>
-      <Source>grass.jpg</Source>
-      <Name>grass</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\grass.xnb</Output>
-      <Time>2013-12-18T12:27:48.5024266-05:00</Time>
-    </Item>
-    <Item>
-      <Source>house.png</Source>
-      <Name>house</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\house.xnb</Output>
-      <Time>2013-12-18T12:27:48.5404304-05:00</Time>
-    </Item>
-    <Item>
-      <Source>road.jpg</Source>
-      <Name>road</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\road.xnb</Output>
-      <Time>2013-12-18T12:27:48.5594323-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Enemy.png</Source>
-      <Name>Enemy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Enemy.xnb</Output>
-      <Time>2013-12-18T13:16:33.7591283-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Player_Sage_Back.png</Source>
-      <Name>Player_Sage_Back</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Back.xnb</Output>
-      <Time>2013-12-19T20:53:19.2328127-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Player_Sage_Front.png</Source>
-      <Name>Player_Sage_Front</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Front.xnb</Output>
-      <Time>2013-12-19T20:53:19.2601263-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Player_Sage_Left.png</Source>
-      <Name>Player_Sage_Left</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Left.xnb</Output>
-      <Time>2014-01-08T12:08:49.7711896-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Player_Sage_Right.png</Source>
-      <Name>Player_Sage_Right</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Right.xnb</Output>
-      <Time>2014-01-08T12:08:49.7901896-05:00</Time>
-    </Item>
-    <Item>
-      <Source>house2.png</Source>
-      <Name>house2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\house2.xnb</Output>
-      <Time>2014-01-09T12:05:27.4122214-05:00</Time>
-    </Item>
-    <Item>
-      <Source>zombie.png</Source>
-      <Name>zombie</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\zombie.xnb</Output>
-      <Time>2014-01-10T17:12:27.2377451-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Player_Lance_Back_Left.png</Source>
-      <Name>Player_Lance_Back_Left</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Back_Left.xnb</Output>
-      <Time>2014-01-10T21:21:51.4339548-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Player_Lance_Front_Right.png</Source>
-      <Name>Player_Lance_Front_Right</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Front_Right.xnb</Output>
-      <Time>2014-01-10T21:21:51.4492656-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Player_Axe_Man_Front.png</Source>
-      <Name>Player_Axe_Man_Front</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Axe_Man_Front.xnb</Output>
-      <Time>2014-01-10T21:30:43.8450423-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Player_Axe_Man_Right.png</Source>
-      <Name>Player_Axe_Man_Right</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Axe_Man_Right.xnb</Output>
-      <Time>2014-01-10T21:30:43.8661428-05:00</Time>
-    </Item>
-    <Item>
-      <Source>spider.png</Source>
-      <Name>spider</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\spider.xnb</Output>
-      <Time>2014-01-10T22:05:53.734744-05:00</Time>
-    </Item>
-    <Item>
-      <Source>heart.png</Source>
-      <Name>heart</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\heart.xnb</Output>
-      <Time>2014-01-11T18:02:05.7364898-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Magic_Attack.png</Source>
-      <Name>Magic_Attack</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Magic_Attack.xnb</Output>
-      <Time>2014-01-12T16:29:17.0746219-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Axe_Attack.png</Source>
-      <Name>Axe_Attack</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Axe_Attack.xnb</Output>
-      <Time>2014-01-12T20:41:20.6527212-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Lance_Attack.png</Source>
-      <Name>Lance_Attack</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Lance_Attack.xnb</Output>
-      <Time>2014-01-13T12:21:26.4703111-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Level_Up.wav</Source>
-      <Name>Level_Up</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Level_Up.xnb</Output>
-      <Time>2014-01-13T16:53:30.4983607-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Mage_Attack_Sound.wav</Source>
-      <Name>Mage_Attack_Sound</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Mage_Attack_Sound.xnb</Output>
-      <Time>2014-01-13T16:53:30.5140382-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Sword_Lance_Attack_Sound.wav</Source>
-      <Name>Sword_Lance_Attack_Sound</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Sword_Lance_Attack_Sound.xnb</Output>
-      <Time>2014-01-13T17:16:10.4913238-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Start_Up_Song.mp3</Source>
-      <Name>Start_Up_Song</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.xnb</Output>
-      <Extra>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.wma</Extra>
-      <Time>2014-01-13T16:56:30.1991874-05:00</Time>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2014-01-15T17:56:09.7407942-05:00</Time>
     </Item>
     <Item>
       <Source>SpriteFont2.spritefont</Source>
@@ -260,8 +16,252 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\SpriteFont2.xnb</Output>
-      <Time>2014-01-14T12:28:56.2893121-05:00</Time>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\SpriteFont2.xnb</Output>
+      <Time>2014-01-15T17:56:09.7417928-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu.jpg</Source>
+      <Name>Menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Menu.xnb</Output>
+      <Time>2014-01-15T17:56:09.6052411-05:00</Time>
+    </Item>
+    <Item>
+      <Source>exit.png</Source>
+      <Name>exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\exit.xnb</Output>
+      <Time>2014-01-15T17:56:09.7828211-05:00</Time>
+    </Item>
+    <Item>
+      <Source>info.png</Source>
+      <Name>info</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\info.xnb</Output>
+      <Time>2014-01-15T17:56:09.7928277-05:00</Time>
+    </Item>
+    <Item>
+      <Source>start.png</Source>
+      <Name>start</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\start.xnb</Output>
+      <Time>2014-01-15T17:56:09.8098398-05:00</Time>
+    </Item>
+    <Item>
+      <Source>grass.jpg</Source>
+      <Name>grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\grass.xnb</Output>
+      <Time>2014-01-15T17:56:09.7838229-05:00</Time>
+    </Item>
+    <Item>
+      <Source>house.png</Source>
+      <Name>house</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\house.xnb</Output>
+      <Time>2014-01-15T17:56:09.7858248-05:00</Time>
+    </Item>
+    <Item>
+      <Source>road.jpg</Source>
+      <Name>road</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\road.xnb</Output>
+      <Time>2014-01-15T17:56:09.8078385-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Enemy.png</Source>
+      <Name>Enemy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Enemy.xnb</Output>
+      <Time>2014-01-15T17:56:09.3160526-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Sage_Back.png</Source>
+      <Name>Player_Sage_Back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Back.xnb</Output>
+      <Time>2014-01-15T17:56:09.6112466-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Sage_Front.png</Source>
+      <Name>Player_Sage_Front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Front.xnb</Output>
+      <Time>2014-01-15T17:56:09.6132473-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Sage_Left.png</Source>
+      <Name>Player_Sage_Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Left.xnb</Output>
+      <Time>2014-01-15T17:56:09.6142478-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Sage_Right.png</Source>
+      <Name>Player_Sage_Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Sage_Right.xnb</Output>
+      <Time>2014-01-15T17:56:09.6152486-05:00</Time>
+    </Item>
+    <Item>
+      <Source>house2.png</Source>
+      <Name>house2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\house2.xnb</Output>
+      <Time>2014-01-15T17:56:09.788826-05:00</Time>
+    </Item>
+    <Item>
+      <Source>zombie.png</Source>
+      <Name>zombie</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\zombie.xnb</Output>
+      <Time>2014-01-15T17:56:09.8098398-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Lance_Back_Left.png</Source>
+      <Name>Player_Lance_Back_Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Back_Left.xnb</Output>
+      <Time>2014-01-15T17:56:09.609244-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Lance_Front_Right.png</Source>
+      <Name>Player_Lance_Front_Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Lance_Front_Right.xnb</Output>
+      <Time>2014-01-15T17:56:09.6102452-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Axe_Man_Front.png</Source>
+      <Name>Player_Axe_Man_Front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Axe_Man_Front.xnb</Output>
+      <Time>2014-01-15T17:56:09.6062422-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Player_Axe_Man_Right.png</Source>
+      <Name>Player_Axe_Man_Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Player_Axe_Man_Right.xnb</Output>
+      <Time>2014-01-15T17:56:09.6072424-05:00</Time>
+    </Item>
+    <Item>
+      <Source>spider.png</Source>
+      <Name>spider</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\spider.xnb</Output>
+      <Time>2014-01-15T17:56:09.808839-05:00</Time>
+    </Item>
+    <Item>
+      <Source>heart.png</Source>
+      <Name>heart</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\heart.xnb</Output>
+      <Time>2014-01-15T17:56:09.7848224-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Magic_Attack.png</Source>
+      <Name>Magic_Attack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Magic_Attack.xnb</Output>
+      <Time>2014-01-15T17:56:09.601239-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Axe_Attack.png</Source>
+      <Name>Axe_Attack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Axe_Attack.xnb</Output>
+      <Time>2014-01-15T17:56:09.3150515-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Lance_Attack.png</Source>
+      <Name>Lance_Attack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Lance_Attack.xnb</Output>
+      <Time>2014-01-15T17:56:09.5922301-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Level_Up.wav</Source>
+      <Name>Level_Up</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Level_Up.xnb</Output>
+      <Time>2014-01-15T17:56:09.5972364-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Mage_Attack_Sound.wav</Source>
+      <Name>Mage_Attack_Sound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Mage_Attack_Sound.xnb</Output>
+      <Time>2014-01-15T17:56:09.599238-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sword_Lance_Attack_Sound.wav</Source>
+      <Name>Sword_Lance_Attack_Sound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Sword_Lance_Attack_Sound.xnb</Output>
+      <Time>2014-01-15T17:56:09.7828211-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Start_Up_Song.mp3</Source>
+      <Name>Start_Up_Song</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.xnb</Output>
+      <Extra>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\Start_Up_Song.wma</Extra>
+      <Time>2014-01-15T17:56:09.7808229-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -269,10 +269,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_FightContent\</RootDirectory>
-      <LoggerRootDirectory>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\</LoggerRootDirectory>
-      <IntermediateDirectory>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_FightContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>F:\Johnson Prog 2\XNA\Final Project\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_FightContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_FightContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\dcharles525\Documents\GitHub\DALK-Owned--Medieval-Fight-\Medeval_Fight\Medeval_Fight\Medeval_Fight\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -300,8 +300,8 @@
         <Value>2010-08-23T12:41:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-08-26T16:12:28.988172-04:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-10-26T20:58:10.9036769-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
