@@ -1,7 +1,8 @@
 //Program built under DALK Application Development
 //Orginally Developed by David Johnson
 //Medieval Fight
-//Version Alpha 1.1.6
+//Licensed under GPLv3
+//Version Alpha 1.1.7
 using System;
 using System.Collections.Generic;
 using System.Linq;
