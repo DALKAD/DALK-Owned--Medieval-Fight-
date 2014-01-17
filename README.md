@@ -17,13 +17,5 @@ DALK Programming Requirements
 <br>
 	1d. If the code is sloppy in any way then it won’t be added.
 
-Upcoming updates by DALK
-
-1. Optimizng code
-2. Cleaning up the gameplay
-3. Fixing bugs
-4. New Images for everything
-5. Better enemies 
-6. Smarter health systems
 
 Owned by DALK, Created by David Johnson
