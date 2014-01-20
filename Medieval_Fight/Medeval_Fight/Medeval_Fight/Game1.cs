@@ -2,7 +2,7 @@
 //Orginally Developed by David Johnson
 //Medieval Fight
 //Licensed under GPLv3
-//Version Alpha 1.1.7
+//Version Alpha 1.1.11
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +52,7 @@ namespace Medeval_Fight
         List<int> Current_Attacks;
         //sounds
         SoundEffect Lance_Axe_Attack_Sound, Sage_Attack_Sound, Level_Up_Music;
-        Song Start_Up_Music;
+		Song Start_Up_Music, gameplay_Music;
         //arrays
         string[] Levels = new string[5] { "Level 1", "Level 2", "Level 3", "Level 4" , "Level 5"};
         string[] Loading = new string[5] {"Loading." , "Loading.." , "Loading..." , "Loading...." , "Loading....."};
@@ -285,8 +285,10 @@ namespace Medeval_Fight
         }
         public void Game_Play_Update_State()
         {
+			MediaPlayer.Play(gameplay_Music);
             Mouse_State = Mouse.GetState();
             KeyboardState Keyboard_State = Keyboard.GetState();
+
             //Nested If waiting for user to pick a character
             if (Character_Pick == false)
             {
