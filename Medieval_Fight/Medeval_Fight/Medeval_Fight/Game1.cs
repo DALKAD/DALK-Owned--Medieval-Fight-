@@ -99,9 +99,9 @@ namespace Medeval_Fight
             Enemy_Rec_11 = new Rectangle(180, 250, 40, 40);
             Enemy_Rec_12 = new Rectangle(340, 200, 40, 40);
             Enemy_Rec_13 = new Rectangle(220, 150, 40, 40);
-            Enemy_Rec_14 = new Rectangle(200, 400, 40, 40);
+            Enemy_Rec_14 = new Rectangle(200, 450, 40, 40);
             Enemy_Rec_15 = new Rectangle(200, 400, 40, 40);
-            Enemy_Rec_16 = new Rectangle(200, 400, 40, 40);
+            Enemy_Rec_16 = new Rectangle(260, 400, 40, 40);
             Enemy_Rec_17 = new Rectangle(230, 400, 40, 40);
             Enemy_Rec_18 = new Rectangle(210, 400, 40, 40);
             Enemy_Rec_19 = new Rectangle(260, 400, 40, 40);
@@ -285,10 +285,8 @@ namespace Medeval_Fight
         }
         public void Game_Play_Update_State()
         {
-			MediaPlayer.Play(gameplay_Music);
             Mouse_State = Mouse.GetState();
             KeyboardState Keyboard_State = Keyboard.GetState();
-
             //Nested If waiting for user to pick a character
             if (Character_Pick == false)
             {
@@ -1346,6 +1344,9 @@ namespace Medeval_Fight
             {
                 Village_Pillage = true;
             }
+            //Side bar info goes here
+                
+            //
             Village_Timer++;
             Attack_Time_Counter++;
             Enemy_Damage_Counter++;
